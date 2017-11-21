@@ -1,6 +1,13 @@
 <!-- 上传图片 -->
 <template>
   <div>
+    <!-- 标题栏 -->
+    <mt-header title="上传图片">
+      <router-link to="/" slot="left">
+        <mt-button icon="back">返回</mt-button>
+      </router-link>
+    </mt-header>
+    <!-- 内容 -->
     <div style="padding:20px;">
       <div class="show">
         <div class="picture" :style="'backgroundImage:url('+headerImage+')'"></div>
@@ -14,9 +21,10 @@
 </template>
 
 <script>
-import {Exif} from '../../static/exif.js'
+import {Exif} from '../../static/js/exif.js'
 
 export default {
+  name: 'UploadImg',
   data () {
     return {
       headerImage:'',

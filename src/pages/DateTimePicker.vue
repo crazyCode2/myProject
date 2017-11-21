@@ -1,6 +1,13 @@
 <!-- 日期选择器 -->
 <template>
   <div>
+    <!-- 标题栏 -->
+    <mt-header title="日期选择器">
+      <router-link to="/" slot="left">
+        <mt-button icon="back">返回</mt-button>
+      </router-link>
+    </mt-header>
+    <!-- 内容 -->
     <mt-button @click="open('datePicker')" size="large">日期选择</mt-button>
     <div>当前：{{currentDate}}</div>
     <br/>
@@ -18,7 +25,7 @@
 <script>
   import { Toast } from 'mint-ui';
   export default {
-    name: 'hello',
+    name: 'DateTimePicker',
     data () {
       return {
         currentDate:'20170101'

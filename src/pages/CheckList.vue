@@ -1,6 +1,13 @@
 <!-- 复选列表 -->
 <template>
-  <div id="app">
+  <div>
+    <!-- 标题栏 -->
+    <mt-header title="复选列表">
+      <router-link to="/" slot="left">
+        <mt-button icon="back">返回</mt-button>
+      </router-link>
+    </mt-header>
+    <!-- 内容 -->
     <mt-checklist
       title="复选框列表"
       v-model="value"
@@ -12,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Test',
+  name: 'CheckList',
   data () {
     return {
       //存放所选选项

@@ -1,27 +1,50 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import CheckList from '../pages/CheckList'
-import DateTimePicker from '../pages/DateTimePicker'
-import UploadImg from '../pages/UploadImg'
+import Home from '../pages/Home' // 首页
+import CheckList from '../pages/CheckList' // 复选框列表
+import DateTimePicker from '../pages/DateTimePicker' // 日期选择器
+import UploadImg from '../pages/UploadImg' // 图片上传
+import QR from '../pages/QR' // 生成二维码
+import Scan from '../pages/Scan' // 扫描二维码
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'CheckList',
-    //   component: CheckList
-    // }
-    // {
-    //   path: '/',
-    //   name: 'DateTimePicker',
-    //   component: DateTimePicker
-    // }
     {
       path: '/',
+      name: 'Home',
+      component: Home
+    },
+    // 复选框列表
+    {
+      path: '/checkList',
+      name: 'CheckList',
+      component: CheckList
+    },
+    // 日期选择器
+    {
+      path: '/dateTimePicker',
+      name: 'DateTimePicker',
+      component: DateTimePicker
+    },
+    // 图片上传
+    {
+      path: '/uploadImg',
       name: 'UploadImg',
       component: UploadImg
+    },
+    // 生成二维码
+    {
+      path: '/qr',
+      name: 'QR',
+      component: QR
+    },
+    // 扫描二维码
+    {
+      path: '/scan',
+      name: 'Scan',
+      component: Scan
     }
   ]
 })
