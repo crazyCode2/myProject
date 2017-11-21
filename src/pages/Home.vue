@@ -4,10 +4,10 @@
     <!-- 标题栏 -->
     <mt-header title="首页"></mt-header>
     <!-- 内容 -->
-    <mt-cell title="复选框列表" to="/checkList" is-link></mt-cell>
-    <mt-cell title="日期选择器" to="/dateTimePicker" is-link></mt-cell>
+    <!-- <mt-cell title="复选框列表" to="/checkList" is-link></mt-cell>
+    <mt-cell title="日期选择器" to="/dateTimePicker" is-link></mt-cell> -->
     <mt-cell title="图片上传" to="/uploadImg" is-link></mt-cell>
-    <mt-cell title="生成二维码" to="/qr" is-link></mt-cell>
+    <!-- <mt-cell title="生成二维码" to="/qr" is-link></mt-cell> -->
     <mt-cell title="扫描二维码" to="/scan" is-link></mt-cell>
   </div>
 </template>
@@ -22,3 +22,5 @@
     }
   }
 </script>
+
+<style lang="less" scoped></style>

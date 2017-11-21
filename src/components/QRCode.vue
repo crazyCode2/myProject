@@ -96,7 +96,7 @@
   }
 </script>
 
-<style>
+<style lang="less" scoped>
   .qrcode-canvas {
     display: none
   }

@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
+    "jsqr": "^0.2.2",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "mint-ui": "^2.2.9",
     "qr.js": "0.0.0",
     "vue": "^2.5.2",
     "vue-axios": "^2.0.2",
-    "vue-qrcode-reader": "^0.6.3",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

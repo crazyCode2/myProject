@@ -8,9 +8,6 @@
       </router-link>
     </mt-header>
     <!-- 内容 https://github.com/gruhn/vue-qrcode-reader -->
-    <qrcode-reader @init="onInit">
-      <b>stuff here overlays the camera stream</b>
-    </qrcode-reader>
   </div>
 </template>
 
@@ -23,25 +20,7 @@
       }
     },
     methods: {
-      async onInit (promise) {
-        // show loading indicator
-        try {
-          await promise
-          // successfully initialized
-        } catch (error) {
-          if (error.name === 'NotAllowedError') {
-            // user denied camera access permisson
-          } else if (error.name === 'NotFoundError') {
-            // no suitable camera device installed
-          } else if (error.name === 'NotSupportedError') {
-            // page is not served over HTTPS (or localhost)
-          } else {
-            // browser is probably lacking features (WebRTC, Canvas)
-          }
-        } finally {
-          // hide loading indicator
-        }
-      }
+      //
     }
   }
 </script>

@@ -15,8 +15,8 @@ import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
 
 // 全局注册 二维码阅读器
-import VueQrcodeReader from 'vue-qrcode-reader'
-Vue.use(VueQrcodeReader)
+// import VueQrcodeReader from 'vue-qrcode-reader'
+// Vue.use(VueQrcodeReader)
 
 Vue.config.productionTip = false
 
