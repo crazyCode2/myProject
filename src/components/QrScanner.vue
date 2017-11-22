@@ -30,7 +30,9 @@
       this.canvas = document.getElementById('qr-canvas');
       this.context = this.canvas.getContext('2d');
 
-      // Call the getUserMedia method with our callback functions
+      console.log(navigator.getUserMedia);
+
+      // 使用回调方法 触发getUserMedia函数
       if (navigator.getUserMedia) {
         var videoSource = [];
         navigator.mediaDevices.enumerateDevices().then((function (sourceInfos) {
@@ -61,7 +63,7 @@
         }));
 
       } else {
-        this.errorMes = 'Native web camera streaming (getUserMedia) not supported in this browser.';
+        this.errorMes = '此浏览器不支持本地网络摄像机流（getUserMedia）。';
       }
 
       qrcode.callback = function (data) {
