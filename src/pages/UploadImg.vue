@@ -38,20 +38,5 @@
 </script>
 
 <style lang="less" scoped>
-  .show {
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    position: relative;
-    border-radius: 50%;
-    border: 1px solid #d5d5d5;
-  }
-  .picture {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
 </style>

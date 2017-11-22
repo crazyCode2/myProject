@@ -45,7 +45,6 @@
       return {
         status: 'ready', // 状态
         files: [], // 图片数组
-        point: {},
         uploading: false, // 进度条
         percent: 0, // 上传进度
       }

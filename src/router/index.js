@@ -6,6 +6,7 @@ import DateTimePicker from '../pages/DateTimePicker' // 日期选择器
 import UploadImg from '../pages/UploadImg' // 图片上传
 import QR from '../pages/QR' // 生成二维码
 import Scan from '../pages/Scan' // 扫描二维码
+import Scanner from '../pages/Scanner' // 扫一扫
 
 Vue.use(Router)
 
@@ -45,6 +46,12 @@ export default new Router({
       path: '/scan',
       name: 'Scan',
       component: Scan
+    },
+    // 扫一扫
+    {
+      path: '/scanner',
+      name: 'Scanner',
+      component: Scanner
     }
   ]
 })

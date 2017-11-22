@@ -8,15 +8,22 @@
       </router-link>
     </mt-header>
     <!-- 内容 https://github.com/gruhn/vue-qrcode-reader -->
+    <m-q-r-scan :paused="start"></m-q-r-scan>
   </div>
 </template>
 
 <script>
+  // 引入 扫一扫组件
+  import mQRScan from '../components/QRScan'
+
   export default {
     name: 'Scan',
+    components: {
+      mQRScan
+    },
     data(){
       return {
-        //
+        start:true
       }
     },
     methods: {

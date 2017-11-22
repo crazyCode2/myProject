@@ -1,12 +1,13 @@
 <!-- 扫描二维码 组件 -->
 <template>
   <div class="qrcode-reader">
+    <!-- 相机 -->
     <video
       ref="video"
       class="qrcode-reader__camera"
       @loadeddata="onStreamLoaded"
     ></video>
-
+    <!-- 画布 -->
     <canvas
       ref="canvas"
       class="qrcode-reader__snapshot"
@@ -21,10 +22,14 @@
 </template>
 
 <script>
+  // 引入 解码、定位函数
   import { decode, locate } from './scanner.js'
 
+  // 定位区间 帧数
   const LOCATE_INTERVAL = 40 // 1000ms / 40ms = 25fps
+  // 解码区间
   const DECODE_INTERVAL = 400
+  // 限制
   const CONSTRAINTS = {
     audio: false,
     video: {
@@ -33,9 +38,10 @@
       height: { min: 240, ideal: 720, max: 1080 },
     },
   }
+
   export default {
     props: {
-      paused: {
+      paused: { // 暂停
         type: Boolean,
         default: false,
       },
@@ -55,9 +61,9 @@
     },
     computed: {
       /*
-       * 如果内存不足,视频被缩小。
-       * QR码的位置检测是基于原始分辨率虽然. This difference
-       * is compansated here.
+       * 如果流分辨率大于可用空间，则将视频缩小。
+       * 检测到的QR码位置是基于原始分辨率的。
+       * 这种差异在这里得到补偿。
        */
       locationArray () {
         if (this.location === null) {
@@ -79,7 +85,7 @@
       },
     },
     watch: {
-      paused (newValue) {
+      paused (newValue) { // 监听状态
         if (newValue === true) {
           this.stopScanning()
         } else {
@@ -101,12 +107,12 @@
         }
       )
       this.$emit('init', initPromise)
-      // check browser support
+      // 检测浏览器支持度
       const canvas = this.$refs.canvas
       if (!(canvas.getContext && canvas.getContext('2d'))) {
-        this.initReject(new Error('HTML5 Canvas not supported in this browser.'))
+        this.initReject(new Error('此浏览器不支持HTML5画布。'))
       } else if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
-        this.initReject(new Error('WebRTC API not supported in this browser'))
+        this.initReject(new Error('此浏览器不支持WebRTC API'))
       } else {
         this.startCamera()
       }
@@ -116,6 +122,7 @@
       this.stopScanning()
     },
     methods: {
+      // 异步 启动相机
       async startCamera () {
         try {
           this.stream = await navigator.mediaDevices.getUserMedia(CONSTRAINTS)
@@ -137,6 +144,7 @@
           this.initReject(e)
         }
       },
+      // 关闭相机
       stopCamera () {
         if (this.stream !== null) {
           this.stream.getTracks().forEach(
@@ -144,6 +152,7 @@
           )
         }
       },
+      // 捕获帧数
       captureFrame () {
         const video = this.$refs.video
         const canvas = this.$refs.canvas
@@ -152,6 +161,7 @@
         ctx.drawImage(video, ...bounds)
         return ctx.getImageData(...bounds)
       },
+      // 开始扫描
       startScanning () {
         this.stopScanning()
         this.$refs.video.play()
@@ -172,6 +182,7 @@
           }
         }, LOCATE_INTERVAL)
       },
+      // 停止扫描
       stopScanning () {
         this.$refs.video.pause()
         window.clearInterval(this.decodeIntervalID)
@@ -179,7 +190,8 @@
         this.decodeIntervalID = -1
         this.locateIntervalID = -1
       },
-      onStreamLoaded (event) { // first frame finished loading
+      // 加载流
+      onStreamLoaded (event) { // 第一帧完成加载
         const video = event.target
         this.streamWidth = video.videoWidth
         this.streamHeight = video.videoHeight
