@@ -1,28 +1,34 @@
 <!-- 上传图片 组件 -->
 <template>
   <div class="vue-uploader">
+    <!-- 添加图片 及 显示效果 -->
     <div class="file-list">
+      <!-- 图片列表 files -->
       <section v-for="(file, index) of files" class="file-item draggable-item">
         <img :src="file.src" alt="" ondragstart="return false;">
         <p class="file-name">{{file.name}}</p>
         <span class="file-remove" @click="remove(index)">+</span>
       </section>
+      <!-- 添加图片按钮 -->
       <section v-if="status == 'ready'" class="file-item">
         <div @click="add" class="add">
           <span>+</span>
         </div>
       </section>
     </div>
-
+    <!-- 上传图片操作 及 显示进程 -->
     <section v-if="files.length != 0" class="upload-func">
+      <!-- 上传进度 -->
       <div class="progress-bar">
         <section v-if="uploading" :width="(percent * 100) + '%'">{{(percent * 100) + '%'}}</section>
       </div>
+      <!-- 操作按钮 -->
       <div class="operation-box">
         <button v-if="status == 'ready'" @click="submit">上传</button>
         <button v-if="status == 'finished'" @click="finished">完成</button>
       </div>
     </section>
+    <!-- 调用相机/图库 ref="file" 指定DOM节点 -->
     <input type="file" accept="image/*" @change="fileChanged" ref="file" multiple="multiple">
   </div>
 </template>
@@ -30,29 +36,32 @@
 <script>
   export default {
     props: {
-      src: {
+      src: { // 后台接受图片的http地址
         type: String,
         required: true
       }
     },
     data() {
       return {
-        status: 'ready',
-        files: [],
+        status: 'ready', // 状态
+        files: [], // 图片数组
         point: {},
-        uploading: false,
-        percent: 0
+        uploading: false, // 进度条
+        percent: 0, // 上传进度
       }
     },
     methods: {
+      // 添加图片操作
       add() {
-        this.$refs.file.click()
+        this.$refs.file.click();
       },
+      // 上传图片操作
       submit() {
         if (this.files.length === 0) {
           console.warn('no file!');
           return
         }
+        // 创建formData对象
         const formData = new FormData();
         this.files.forEach((item) => {
           formData.append(item.name, item.file)
@@ -72,13 +81,16 @@
           }
         }
       },
+      // 完成操作 还原状态
       finished() {
         this.files = []
         this.status = 'ready'
       },
+      // 上传图片列表中的某个图片
       remove(index) {
         this.files.splice(index, 1)
       },
+      // 唤醒相机/图库
       fileChanged() {
         const list = this.$refs.file.files
         for (let i = 0; i < list.length; i++) {
@@ -88,6 +100,7 @@
               size: list[i].size,
               file: list[i]
             }
+            // 转换图片格式
             this.html5Reader(list[i], item)
             this.files.push(item)
           }
@@ -102,6 +115,7 @@
         }
         reader.readAsDataURL(file)
       },
+      // 判断是否包含
       isContain(file) {
         this.files.forEach((item) => {
           if(item.name === file.name && item.size === file.size) {
@@ -110,6 +124,7 @@
         })
         return false
       },
+      // 上传进度
       uploadProgress(evt) {
         const component = this
         if (evt.lengthComputable) {
