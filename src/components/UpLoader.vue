@@ -29,7 +29,8 @@
       </div>
     </section>
     <!-- 调用相机/图库 ref="file" 指定DOM节点 -->
-    <input type="file" accept="image/*" @change="fileChanged" ref="file" multiple="multiple">
+    <!-- <input type="file" accept="image/*" @change="fileChanged" ref="file" multiple="multiple"> -->
+    <input type="file" accept="image/*" @change="fileChanged" ref="file" capture="camera"  multiple>
   </div>
 </template>
 

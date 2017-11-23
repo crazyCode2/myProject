@@ -16,6 +16,10 @@ Vue.use(VueAxios, axios)
 // import VueQrcodeReader from 'vue-qrcode-reader'
 // Vue.use(VueQrcodeReader)
 
+// 全局 注册scroller
+import VueScroller from 'vue-scroller'
+Vue.use(VueScroller)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -30,14 +30,6 @@
         val:'https://www.baidu.com/s?wd=123'
       }
     },
-    // watch: {
-    //   val: {
-    //     handler: function (val, oldVal) {
-    //       console.log(val);
-    //     },
-    //     deep: true
-    //   }
-    // },
     methods: {
       changeUrl(){
         MessageBox.prompt('请输入新的url').then(({ value, action }) => {

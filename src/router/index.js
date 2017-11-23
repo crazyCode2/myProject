@@ -7,6 +7,7 @@ import UploadImg from '../pages/UploadImg' // 图片上传
 import QR from '../pages/QR' // 生成二维码
 import Scan from '../pages/Scan' // 扫描二维码
 import Scanner from '../pages/Scanner' // 扫一扫
+import LoadMore from '../pages/LoadMore' // 下拉刷新/上拉加载更多
 
 Vue.use(Router)
 
@@ -52,6 +53,12 @@ export default new Router({
       path: '/scanner',
       name: 'Scanner',
       component: Scanner
+    },
+    // 下拉刷新/上拉加载更多
+    {
+      path: '/loadMore',
+      name: 'LoadMore',
+      component: LoadMore
     }
   ]
 })
