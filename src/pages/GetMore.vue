@@ -9,7 +9,7 @@
     </mt-header>
     <!-- 列表 -->
     <div class="cont">
-      <m-scroller :on-refresh="onRefresh" :on-infinite="onInfinite" :dataList="scrollData">
+      <m-scroller :on-refresh="onRefresh" :on-infinite="onInfinite" :dataList="scrollData" :marginTop="marginTop">
         <ul>
           <li v-for="(item,index) in listdata">{{item.name}}</li>
         </ul>
@@ -27,6 +27,7 @@
     },
     data() {
       return {
+        marginTop:'margin-top:40px;',
         pageStart: 0, // 开始页数
         pageEnd: 0, // 结束页数
         listdata: [], // 数据列表
@@ -61,7 +62,6 @@
         let more = this.$el.querySelector('.load-more');
         // 判断是否显示加载条
         if(this.pageStart > this.pageEnd){
-          more.style.display = 'none'; //隐藏加载条
           //走完数据调用方法
           this.scrollData.noFlag = true;
         }else{
@@ -72,6 +72,8 @@
             _this.pageEnd = response.data.data.totalPage;
           })
         }
+        // 隐藏加载条
+        more.style.display = 'none';
         done();
       }
     }

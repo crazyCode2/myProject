@@ -1,6 +1,7 @@
 <!-- 下拉刷新 上拉加载更多 组件 -->
 <template>
   <div
+    :style="marginTop"
     class="yo-scroll"
     :class="{'down':(state===0),'up':(state==1),refresh:(state===2),touch:touching}"
     @touchstart="touchStart($event)"
@@ -35,6 +36,9 @@
   export default {
     // 接收父组件参数
     props: {
+      marginTop: {
+        default: "margin-top:40px;"
+      },
       // 默认高度
       offset: {
         type: Number,
@@ -186,7 +190,7 @@
 
 <style lang="less" scoped>
   .yo-scroll {
-    margin-top: 40px; // 解决有标题栏的bug
+    // margin-top: 40px; // 解决有标题栏的bug
     font-size: 16px;
     position: absolute;
     top: 0;
