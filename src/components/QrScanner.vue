@@ -1,9 +1,13 @@
 <!-- 扫一扫 二维码 -->
 <template>
   <div>
+    <!-- 录像机 -->
     <video id="qr-vedio" class="v" autoplay=""></video>
+    <!-- 画布 -->
     <canvas id="qr-canvas" width="800" height="600" style="width: 800px; height: 600px;display:none;"></canvas>
+    <!-- 扫描结果 -->
     <p v-show="result != ''">{{result}}</p>
+    <!-- 报错信息 -->
     <p v-show="errorMes != ''">{{errorMes}}</p>
   </div>
 </template>
@@ -13,38 +17,45 @@
     name: 'QrScanner',
     data() {
       return {
-        vedio: '',
-        canvas: '',
-        context: '',
-        stopScan: null,
-        errorMes: '',
-        result: ''
+        vedio: '', // 录像机
+        canvas: '', // 画布
+        context: '', // 指定绘图
+        stopScan: null, // 停止扫描
+        errorMes: '', // 报错信息
+        result: '' // 扫描结果
       }
     },
     mounted() {
+      // 定义this指针
       var _that = this;
       window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
-      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-
+      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.mediaDevices.getUserMedia;
+      // 获取DOM节点
       this.vedio = document.getElementById('qr-vedio');
       this.canvas = document.getElementById('qr-canvas');
+      // 指定了二维绘图
       this.context = this.canvas.getContext('2d');
 
-      console.log(navigator.getUserMedia);
-
-      // 使用回调方法 触发getUserMedia函数
+      /**
+       * 使用回调方法 触发getUserMedia函数
+       * 设置video监听器
+       */
       if (navigator.getUserMedia) {
+        // 录像资源
         var videoSource = [];
+        // 列出摄像头和麦克风
         navigator.mediaDevices.enumerateDevices().then((function (sourceInfos) {
+          console.log(sourceInfos);
           var i;
           for (i = 0; i != sourceInfos.length; ++i) {
             var sourceInfo = sourceInfos[i];
-            if (sourceInfo.kind === 'videoinput' && sourceInfo.label.indexOf('back') != -1) {
+            if (sourceInfo.kind === 'videoinput') {
               videoSource.push(sourceInfo.deviceId);
             }
           }
 
           var successCallback = function (stream) {
+            // console.log('测试' + stream);
             _that.vedio.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
             window.localMediaStream = stream;
             _that.vedio.addEventListener("loadstart", function () {
@@ -58,6 +69,7 @@
               optional: [{ sourceId: videoSource[0] }]
             }
           }, successCallback, function (e) {
+            console.log('123456');
             console.log(e);
           });
         }));
@@ -85,7 +97,7 @@
         try {
           qrcode.decode();
         } catch (e) {
-          console.log('decode has error');
+          console.log(e); // Couldn't find enough finder patterns
         }
       }
     }

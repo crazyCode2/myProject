@@ -138,6 +138,7 @@
           } else {
             video.src = this.stream
           }
+          console.log(video.src);
           video.playsInline = true
         } catch (e) {
           // NotAllowedError, NotSupportedError, NotFoundError

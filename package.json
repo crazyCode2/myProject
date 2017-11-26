@@ -16,6 +16,7 @@
     "less-loader": "^4.0.5",
     "mint-ui": "^2.2.9",
     "qr.js": "0.0.0",
+    "qrcode-reader": "^1.0.4",
     "vue": "^2.5.2",
     "vue-axios": "^2.0.2",
     "vue-router": "^3.0.1",

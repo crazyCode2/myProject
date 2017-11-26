@@ -16,6 +16,9 @@ Vue.use(VueAxios, axios)
 // import VueQrcodeReader from 'vue-qrcode-reader'
 // Vue.use(VueQrcodeReader)
 
+// 全局引入 自定义指令
+import './utils/directive.js'
+
 // 全局 注册scroller
 import VueScroller from 'vue-scroller'
 Vue.use(VueScroller)

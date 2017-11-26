@@ -11,7 +11,12 @@
     <div class="cont">
       <m-scroller :on-refresh="onRefresh" :on-infinite="onInfinite" :dataList="scrollData" :marginTop="marginTop">
         <ul>
-          <li v-for="(item,index) in listdata">{{item.name}}</li>
+          <li v-for="(item,index) in listdata">
+            <!-- 左滑删除 -->
+            <m-left-slider @msg-from-child="getMsgFromChild(item)">
+              {{item.name}}
+            </m-left-slider>
+          </li>
         </ul>
       </m-scroller>
     </div>
@@ -20,10 +25,12 @@
 
 <script>
   import mScroller from '../components/Scroller'
+  import mLeftSlider from '../components/LeftSlider'
 
   export default {
     components: {
-      mScroller
+      mScroller,
+      mLeftSlider,
     },
     data() {
       return {
@@ -49,6 +56,9 @@
           // 还原
           this.pageStart = 0;
         })
+      },
+      getMsgFromChild (v) {
+        this.listdata.splice(v,1)
       },
       // 下拉刷新
       onRefresh(done) {

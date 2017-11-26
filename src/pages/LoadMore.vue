@@ -12,20 +12,30 @@
       :on-refresh="refresh"
       :on-infinite="infinite">
       <div v-for="(item, index) in items" class="row" :class="{'grey-bg': index % 2 == 0}">
-        {{ item }}
+        <slider-delete :sliderConf="sliderConf">
+            <div class="content">{{ item }}</div>
+        </slider-delete>
+        <div class="delete_button"></div>
       </div>
     </scroller>
   </div>
 </template>
 
 <script>
+  import SliderDelete from "../components/SliderDelete";
+
   export default {
+    components:{
+      SliderDelete
+    },
     data() {
       return {
-        items: []
+        items: [],
+        sliderConf:{//滑动配置
+          distance:1.4,
+        }
       }
     },
-
     mounted() {
       for (var i = 1; i <= 20; i++) {
         this.items.push(i + ' - keep walking, be 2 with you.')

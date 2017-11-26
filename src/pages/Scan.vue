@@ -8,7 +8,7 @@
       </router-link>
     </mt-header>
     <!-- 内容 https://github.com/gruhn/vue-qrcode-reader -->
-    <m-q-r-scan :paused="start"></m-q-r-scan>
+    <!-- <m-q-r-scan :paused="start"></m-q-r-scan> -->
   </div>
 </template>
 
@@ -25,6 +25,9 @@
       return {
         start:true
       }
+    },
+    mounted(){
+
     },
     methods: {
       //
