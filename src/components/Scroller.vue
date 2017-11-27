@@ -252,10 +252,10 @@
         left: 20%;
       }
       .up-tip:before {
-        background: url(../assets/images/down-logo.png) no-repeat left;
+        background: url(../assets/img/down-logo.png) no-repeat left;
       }
       .refresh-tip:before {
-        background: url(../assets/images/refresh-logo.gif) no-repeat left;
+        background: url(../assets/img/refresh-logo.gif) no-repeat left;
       }
     }
   }

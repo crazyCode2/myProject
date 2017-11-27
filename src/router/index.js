@@ -9,6 +9,7 @@ import Scan from '../pages/Scan' // 扫描二维码
 import Scanner from '../pages/Scanner' // 扫一扫
 import LoadMore from '../pages/LoadMore' // 下拉刷新/上拉加载更多
 import GetMore from '../pages/GetMore' // 加载更多
+import Diagram from '../pages/Diagram' // 图表
 
 Vue.use(Router)
 
@@ -66,6 +67,12 @@ export default new Router({
       path: '/getMore',
       name: 'GetMore',
       component: GetMore
+    },
+    // 图表
+    {
+      path: '/diagram',
+      name: 'Diagram',
+      component: Diagram
     },
   ]
 })

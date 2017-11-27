@@ -1,3 +1,4 @@
+<!-- 侧滑删除 组件 -->
 <template>
   <div class="delete">
     <div class="slider">

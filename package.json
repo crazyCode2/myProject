@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
+    "echarts": "^3.8.5",
     "jsqr": "^0.2.2",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "mint-ui": "^2.2.9",
+    "node-sass": "^4.7.2",
     "qr.js": "0.0.0",
     "qrcode-reader": "^1.0.4",
     "vue": "^2.5.2",

@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// 引入 flexible.js
+import './assets/js/base.js'
+
 // UI组件库
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
@@ -22,6 +25,10 @@ import './utils/directive.js'
 // 全局 注册scroller
 import VueScroller from 'vue-scroller'
 Vue.use(VueScroller)
+
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 
 Vue.config.productionTip = false
 
