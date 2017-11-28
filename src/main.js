@@ -26,9 +26,13 @@ import './utils/directive.js'
 import VueScroller from 'vue-scroller'
 Vue.use(VueScroller)
 
-// 引入echarts
+// 全局引入echarts
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
+
+// 全局引入MessageBox
+import MessageBox from './components/MessageBox/index';
+Vue.use(MessageBox);
 
 Vue.config.productionTip = false
 

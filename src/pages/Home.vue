@@ -13,6 +13,7 @@
     <!-- <mt-cell title="下拉刷新/上拉加载更多" to="/loadMore" is-link></mt-cell>
     <mt-cell title="加载更多" to="/getMore" is-link></mt-cell> -->
     <mt-cell title="图表" to="/diagram" is-link></mt-cell>
+    <mt-cell title="弹窗" to="/messageBox" is-link></mt-cell>
   </div>
 </template>
 
