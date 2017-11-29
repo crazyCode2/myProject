@@ -1,18 +1,18 @@
 <!-- 折叠列表 组件 -->
 <template>
-  <nav :class="$style.accWrapper">
-    <div :class="$style.accTitle" @click="toggleList">
+  <nav class="accWrapper">
+    <div class="accTitle" @click="toggleList">
       <span>{{ title.area }}</span>
       <span>当前人数：{{ title.num }}人</span>
       <span>总人数：{{ title.sum }}人</span>
       <img
         src="../assets/img/arrow_right.png"
         alt="chevron"
-        :class="[{ [$style.open_menu]: isDisplay, [$style.close_menu]: !isDisplay }, $style.accChevron]"
+        :class="['accChevron', { 'open_menu': isDisplay, 'close_menu': !isDisplay }]"
       />
     </div>
-    <ul :class="[{ [$style.maxHeight]: isDisplay }, $style.accList]">
-      <li :class="$style.accListItem" v-for="item in list">
+    <ul :class="['accList', { 'maxHeight': isDisplay }]">
+      <li class="accListItem" v-for="item in list">
         <span>{{ item.area }}</span>
         <span>当前人数：{{ item.num }}人</span>
         <span>总人数：{{ item.sum }}人</span>
@@ -48,7 +48,7 @@
   }
 </script>
 
-<style lang="scss" module>
+<style lang="less" scoped>
   .accWrapper {
     display:flex;
     flex-direction: column;
