@@ -11,6 +11,7 @@ import LoadMore from '../pages/LoadMore' // 下拉刷新/上拉加载更多
 import GetMore from '../pages/GetMore' // 加载更多
 import Diagram from '../pages/Diagram' // 图表
 import MessageBox from '../pages/MessageBox' // 弹窗
+import Fold from '../pages/Fold' // 折叠列表
 
 Vue.use(Router)
 
@@ -80,6 +81,12 @@ export default new Router({
       path: '/messageBox',
       name: 'MessageBox',
       component: MessageBox
+    },
+    // 折叠列表
+    {
+      path: '/fold',
+      name: 'Fold',
+      component: Fold
     },
   ]
 })

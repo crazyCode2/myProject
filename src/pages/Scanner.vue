@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import QrScanner from '../components/QrScanner'
+  import QrScanner from '../components/QrScanner2'
 
   export default {
     name: 'Scanner',

@@ -29,6 +29,7 @@
       // 定义this指针
       var _that = this;
       window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+      // 1.调用摄像头
       navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.mediaDevices.getUserMedia;
       // 获取DOM节点
       this.vedio = document.getElementById('qr-vedio');
@@ -54,6 +55,7 @@
             }
           }
 
+          // 调用摄像头成功
           var successCallback = function (stream) {
             // console.log('测试' + stream);
             _that.vedio.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
