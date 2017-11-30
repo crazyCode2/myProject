@@ -34,6 +34,11 @@ Vue.prototype.$echarts = echarts
 import MessageBox from './components/MessageBox/index';
 Vue.use(MessageBox);
 
+// 全局引入Toast
+import './components/Toast/toast.css';
+import Toast from './components/Toast/index';
+Vue.use(Toast);
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

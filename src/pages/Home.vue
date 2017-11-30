@@ -15,6 +15,7 @@
     <!-- <mt-cell title="扫描二维码" to="/scan" is-link></mt-cell> -->
     <!-- <mt-cell title="扫一扫" to="/scanner" is-link></mt-cell> -->
     <mt-cell title="折叠列表" to="/fold" is-link></mt-cell>
+    <mt-cell title="提示框" to="/toast" is-link></mt-cell>
   </div>
 </template>
 

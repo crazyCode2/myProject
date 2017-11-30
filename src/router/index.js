@@ -12,6 +12,7 @@ import GetMore from '../pages/GetMore' // 加载更多
 import Diagram from '../pages/Diagram' // 图表
 import MessageBox from '../pages/MessageBox' // 弹窗
 import Fold from '../pages/Fold' // 折叠列表
+import Toast from '../pages/Toast' // 提示框
 
 Vue.use(Router)
 
@@ -87,6 +88,12 @@ export default new Router({
       path: '/fold',
       name: 'Fold',
       component: Fold
+    },
+    // 提示框
+    {
+      path: '/toast',
+      name: 'Toast',
+      component: Toast
     },
   ]
 })
