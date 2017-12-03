@@ -21,6 +21,8 @@ Vue.use(VueAxios, axios)
 
 // 全局引入 自定义指令
 import './utils/directive.js'
+// 全局引入 自定义过滤器
+import './utils/filters.js'
 
 // 全局 注册scroller
 import VueScroller from 'vue-scroller'

@@ -14,6 +14,7 @@ import MessageBox from '../pages/MessageBox' // 弹窗
 import Fold from '../pages/Fold' // 折叠列表
 import Toast from '../pages/Toast' // 提示框
 import Directive from '../pages/Directive' // 自定义指令
+import Filter from '../pages/Filter' // 自定义过滤器
 
 Vue.use(Router)
 
@@ -101,6 +102,12 @@ export default new Router({
       path: '/directive',
       name: 'Directive',
       component: Directive
+    },
+    // 自定义过滤器
+    {
+      path: '/filter',
+      name: 'Filter',
+      component: Filter
     },
   ]
 })
