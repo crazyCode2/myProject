@@ -13,6 +13,7 @@ import Diagram from '../pages/Diagram' // 图表
 import MessageBox from '../pages/MessageBox' // 弹窗
 import Fold from '../pages/Fold' // 折叠列表
 import Toast from '../pages/Toast' // 提示框
+import Directive from '../pages/Directive' // 自定义指令
 
 Vue.use(Router)
 
@@ -94,6 +95,12 @@ export default new Router({
       path: '/toast',
       name: 'Toast',
       component: Toast
+    },
+    // 自定义指令
+    {
+      path: '/directive',
+      name: 'Directive',
+      component: Directive
     },
   ]
 })
