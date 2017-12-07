@@ -10,11 +10,6 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
 
-// // VuxUI组件库 npm install vux --save  npm install vux-loader --save
-// import VuxUI from 'vux-ui'
-// import 'vux-ui/lib/style.css'
-// Vue.use(VuxUI)
-
 // // WeexUI组件库 npm install weex-ui --save
 // import WeexUI from 'weex-ui'
 // import 'weex-ui/lib/style.css'
