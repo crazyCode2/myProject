@@ -16,7 +16,7 @@ import Toast from '../pages/Toast' // 提示框
 import Directive from '../pages/Directive' // 自定义指令
 import Filter from '../pages/Filter' // 自定义过滤器
 import MintUI from '../pages/MintUI' // mint-ui
-import VuxUI from '../pages/VuxUI' // vux-ui
+// import VuxUI from '../pages/VuxUI' // vux-ui
 import WeexUI from '../pages/WeexUI' // weex-ui
 
 Vue.use(Router)
@@ -118,12 +118,12 @@ export default new Router({
       name: 'MintUI',
       component: MintUI
     },
-    // vux-ui
-    {
-      path: '/vux-ui',
-      name: 'VuxUI',
-      component: VuxUI
-    },
+    // // vux-ui
+    // {
+    //   path: '/vux-ui',
+    //   name: 'VuxUI',
+    //   component: VuxUI
+    // },
     // weex-ui
     {
       path: '/weex-ui',
