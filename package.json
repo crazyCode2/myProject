@@ -25,7 +25,10 @@
     "vue-axios": "^2.0.2",
     "vue-collapsible": "^2.0.0",
     "vue-router": "^3.0.1",
-    "vue-scroller": "^2.2.4"
+    "vue-scroller": "^2.2.4",
+    "vux": "^2.7.4",
+    "vux-loader": "^1.1.28",
+    "weex-ui": "^0.3.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
