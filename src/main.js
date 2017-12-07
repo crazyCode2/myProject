@@ -5,10 +5,20 @@ import router from './router'
 // 引入 flexible.js
 import './assets/js/base.js'
 
-// UI组件库
+// MintUI组件库 npm install mint-ui --save
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
+
+// // VuxUI组件库 npm install vux --save  npm install vux-loader --save
+// import VuxUI from 'vux-ui'
+// import 'vux-ui/lib/style.css'
+// Vue.use(VuxUI)
+
+// // WeexUI组件库 npm install weex-ui --save
+// import WeexUI from 'weex-ui'
+// import 'weex-ui/lib/style.css'
+// Vue.use(WeexUI)
 
 // 引入 axios 数据请求方式
 import axios from 'axios'
