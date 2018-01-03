@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Login from '../pages/Login' // 登录页
 import Home from '../pages/Home' // 首页
 import CheckList from '../pages/CheckList' // 复选框列表
 import DateTimePicker from '../pages/DateTimePicker' // 日期选择器
@@ -16,17 +17,32 @@ import Toast from '../pages/Toast' // 提示框
 import Directive from '../pages/Directive' // 自定义指令
 import Filter from '../pages/Filter' // 自定义过滤器
 import MintUI from '../pages/MintUI' // mint-ui
-// import VuxUI from '../pages/VuxUI' // vux-ui
+import VuxUI from '../pages/VuxUI' // vux-ui webpack.base.conf.js
 import WeexUI from '../pages/WeexUI' // weex-ui
+import AudioBook from '../pages/AudioBook' // 书影音
+import Mine from '../pages/Mine' // 我的
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    // 默认页面
     {
       path: '/',
       name: 'Home',
       component: Home
+    },
+    // 首页
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home
+    },
+    // 登录页
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     // 复选框列表
     {
@@ -118,17 +134,29 @@ export default new Router({
       name: 'MintUI',
       component: MintUI
     },
-    // // vux-ui
-    // {
-    //   path: '/vux-ui',
-    //   name: 'VuxUI',
-    //   component: VuxUI
-    // },
+    // vux-ui
+    {
+      path: '/vux-ui',
+      name: 'VuxUI',
+      component: VuxUI
+    },
     // weex-ui
     {
       path: '/weex-ui',
       name: 'WeexUI',
       component: WeexUI
     },
+    // 书影音
+    {
+      path: '/audioBook',
+      name: 'AudioBook',
+      component: AudioBook
+    },
+    // 我的
+    {
+      path: '/mine',
+      name: 'Mine',
+      component: Mine
+    }
   ]
 })

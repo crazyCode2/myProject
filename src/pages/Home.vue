@@ -19,8 +19,9 @@
     <mt-cell title="自定义指令" to="/directive" is-link></mt-cell> -->
     <mt-cell title="自定义过滤器" to="/filter" is-link></mt-cell>
     <mt-cell title="mint-ui" to="/mint-ui" is-link></mt-cell>
-    <!-- <mt-cell title="vux-ui" to="/vux-ui" is-link></mt-cell> -->
+    <mt-cell title="vux-ui" to="/vux-ui" is-link></mt-cell>
     <mt-cell title="weex-ui" to="/weex-ui" is-link></mt-cell>
+    <mt-cell title="跳转登录页" to="/login" is-link></mt-cell>
   </div>
 </template>
 
