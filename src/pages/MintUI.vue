@@ -8,7 +8,7 @@
       </router-link>
     </mt-header>
     <!-- 内容部分 -->
-    <mt-field label="mint-ui介绍" placeholder="mint-ui介绍" type="textarea" rows="4" v-modal="introduction"></mt-field>
+    <mt-field label="使用说明" placeholder="mint-ui介绍" type="textarea" rows="4" v-model="introduction"></mt-field>
   </div>
 </template>
 

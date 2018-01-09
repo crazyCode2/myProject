@@ -8,6 +8,7 @@ import UploadImg from '../pages/UploadImg' // 图片上传
 import QR from '../pages/QR' // 生成二维码
 import Scan from '../pages/Scan' // 扫描二维码
 import Scanner from '../pages/Scanner' // 扫一扫
+import QrScanner from '../pages/QrScanner' // 扫一扫 20180109
 import LoadMore from '../pages/LoadMore' // 下拉刷新/上拉加载更多
 import GetMore from '../pages/GetMore' // 加载更多
 import Diagram from '../pages/Diagram' // 图表
@@ -79,6 +80,12 @@ export default new Router({
       path: '/scanner',
       name: 'Scanner',
       component: Scanner
+    },
+    // 扫一扫 20180109
+    {
+      path: '/qrScanner',
+      name: 'QrScanner',
+      component: QrScanner
     },
     // 下拉刷新/上拉加载更多
     {
