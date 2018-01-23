@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
+    "better-scroll": "^1.8.0",
     "echarts": "^3.8.5",
     "jsqr": "^0.2.2",
     "less": "^2.7.3",
@@ -20,8 +21,10 @@
     "qr.js": "0.0.0",
     "qrcode-reader": "^1.0.4",
     "sass-loader": "^6.0.6",
+    "swiper": "^4.1.0",
     "velocity-animate": "^1.5.0",
     "vue": "^2.5.2",
+    "vue-awesome-swiper": "^3.1.2",
     "vue-axios": "^2.0.2",
     "vue-collapsible": "^2.0.0",
     "vue-router": "^3.0.1",
