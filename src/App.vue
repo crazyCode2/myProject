@@ -35,6 +35,11 @@
       mTabbar,
       mTabbarItem
     },
+    data() {
+      return {
+        select:"Home"
+      }
+    },
     // 计算属性
     computed:mapGetters([
       // 从 getters 中获取值
@@ -52,11 +57,6 @@
         }else{
           this.$store.dispatch('hideTabBar');
         }
-      }
-    },
-    data() {
-      return {
-        select:"Home"
       }
     }
   }
