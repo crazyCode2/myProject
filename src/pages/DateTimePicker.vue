@@ -9,7 +9,7 @@
     </mt-header>
     <!-- 内容 -->
     <mt-button @click="open('datePicker')" size="large">日期选择</mt-button>
-    <div>当前：{{currentDate}}</div>
+    <mt-cell title="当前日期：" :value="currentDate"></mt-cell>
     <br/>
     <mt-datetime-picker
       ref="datePicker"

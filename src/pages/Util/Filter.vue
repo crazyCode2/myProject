@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    name: 'Filter',
+    name: 'Filte',
     data(){
       return {
         currentTime: new Date()

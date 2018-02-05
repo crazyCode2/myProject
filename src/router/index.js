@@ -13,7 +13,8 @@ import LoadMore from '../pages/More/LoadMore' // 下拉刷新/上拉加载更多
 import GetMore from '../pages/More/GetMore' // 加载更多
 import Diagram from '../pages/Echarts/Diagram' // 图表
 import MessageBox from '../pages/Toast/MessageBox' // 弹窗
-import Fold from '../pages/List/Fold' // 折叠列表
+import Fold from '../pages/List/Fold' // 二级折叠列表
+import Cuttle from '../pages/List/Cuttle' // 三级折叠列表
 import Toast from '../pages/Toast/Toast' // 提示框
 import Directive from '../pages/Util/Directive' // 自定义指令
 import Filter from '../pages/Util/Filter' // 自定义过滤器
@@ -110,11 +111,17 @@ export default new Router({
       name: 'MessageBox',
       component: MessageBox
     },
-    // 折叠列表
+    // 二级折叠列表
     {
       path: '/fold',
       name: 'Fold',
       component: Fold
+    },
+    // 三级折叠列表
+    {
+      path: '/cuttle',
+      name: 'Cuttle',
+      component: Cuttle
     },
     // 提示框
     {

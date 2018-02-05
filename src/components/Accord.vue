@@ -1,4 +1,4 @@
-<!-- 折叠列表 组件 -->
+<!-- 三级折叠列表 组件 -->
 <template>
   <nav :class="$style.accWrapper">
     <div :class="$style.accTitle" @click="toggleList">
@@ -12,10 +12,22 @@
       />
     </div>
     <ul :class="[{ [$style.maxHeight]: isDisplay }, $style.accList]">
-      <li :class="$style.accListItem" v-for="item in list">
-        <span>{{ item.area }}</span>
-        <span>当前人数：{{ item.num }}人</span>
-        <span>总人数：{{ item.sum }}人</span>
+      <li :class="$style.accTitle" v-for="item in list" @click="toggleItem">
+        <div>
+          <span>{{ item.area }}</span>
+          <span>当前人数：{{ item.num }}人</span>
+          <span>总人数：{{ item.sum }}人</span>
+          <img
+            src="../assets/img/arrow_right.png"
+            alt="chevron"
+            :class="[{ [$style.open_menu]: isItemDisplay, [$style.close_menu]: !isItemDisplay }, $style.accChevron]"
+          />
+        </div>
+        <ul :class="[{ [$style.maxHeight]: isItemDisplay }, $style.accList]">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
       </li>
     </ul>
   </nav>
@@ -25,7 +37,8 @@
   export default {
     data () {
       return {
-        isDisplay: false
+        isDisplay: false,
+        isItemDisplay: false
       }
     },
     props: {
@@ -41,8 +54,11 @@
       }
     },
     methods: {
-      toggleList () {
+      toggleList() {
         this.isDisplay = !this.isDisplay
+      },
+      toggleItem() {
+        this.isItemDisplay = !this.isItemDisplay
       }
     }
   }

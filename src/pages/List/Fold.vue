@@ -1,8 +1,8 @@
-<!-- 折叠列表 -->
+<!-- 二级折叠列表 -->
 <template>
   <div>
     <!-- 标题栏 -->
-    <mt-header title="折叠列表">
+    <mt-header title="二级折叠列表">
       <router-link to="/" slot="left">
         <mt-button icon="back">返回</mt-button>
       </router-link>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+  // Accordion 组件
   import Accordion from '../../components/Accordion'
 
   export default {

@@ -1,4 +1,4 @@
-<!-- 折叠列表 组件 -->
+<!-- 二级折叠列表 组件 -->
 <template>
   <nav class="accWrapper">
     <div class="accTitle" @click="toggleList">
