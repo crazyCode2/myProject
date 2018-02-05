@@ -1,9 +1,8 @@
 <!-- 入口文件 -->
 <template>
   <div id="app">
-    <router-view/>
-    <!-- 底部选项卡 -->
-    <m-tabbar v-model="select" v-if="tabbarShow">
+    <router-view></router-view>
+    <!-- <m-tabbar v-model="select" v-if="tabbarShow">
      <m-tabbar-item id='Home' isRouter>
         <img src="./assets/img/ic_tab_home_normal.png" alt="" slot="icon-normal">
         <img src="./assets/img/ic_tab_home_active.png" alt="" slot="icon-active">
@@ -19,21 +18,39 @@
         <img src="./assets/img/ic_tab_profile_active.png" alt="" slot="icon-active">
         我的
       </m-tabbar-item>
-    </m-tabbar>
+    </m-tabbar> -->
+    <tabbar v-if="tabbarShow">
+      <tabbar-item selected link="/home">
+        <img slot="icon" src="./assets/img/ic_tab_home_normal.png">
+        <span slot="label">首页</span>
+      </tabbar-item>
+      <tabbar-item show-dot link="/audioBook">
+        <img slot="icon" src="./assets/img/ic_tab_subject_normal.png">
+        <span slot="label">书影音</span>
+      </tabbar-item>
+      <tabbar-item badge="2" link="/mine">
+        <img slot="icon" src="./assets/img/ic_tab_profile_normal.png">
+        <span slot="label">我的</span>
+      </tabbar-item>
+    </tabbar>
   </div>
 </template>
 
 <script>
-  import mTabbar from './components/Tabbar/Tabbar'
-  import mTabbarItem from './components/Tabbar/TabbarItem'
+  // import mTabbar from './components/Tabbar/Tabbar'
+  // import mTabbarItem from './components/Tabbar/TabbarItem'
+  // 引入 vux tabbar 组件
+  import { Tabbar, TabbarItem } from 'vux'
   // 引入 vuex 的两个方法
   import {mapGetters, mapActions} from 'vuex'
 
   export default {
     name: 'app',
     components:{
-      mTabbar,
-      mTabbarItem
+      // mTabbar,
+      // mTabbarItem,
+      Tabbar,
+      TabbarItem
     },
     data() {
       return {
