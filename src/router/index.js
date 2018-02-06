@@ -4,6 +4,7 @@ import Login from '../pages/Login/Login' // 登录页
 import Home from '../pages/Home/Home' // 首页
 import CheckList from '../pages/CheckList' // 复选框列表
 import DateTimePicker from '../pages/DateTimePicker' // 日期选择器
+import Uploader from '../pages/UploadImg/Uploader.vue' // vux 图片上传
 import UploadImg from '../pages/UploadImg/UploadImg' // 图片上传
 import QR from '../pages/Scan/QR' // 生成二维码
 import Scan from '../pages/Scan/Scan' // 扫描二维码
@@ -56,6 +57,12 @@ export default new Router({
       path: '/dateTimePicker',
       name: 'DateTimePicker',
       component: DateTimePicker
+    },
+    // vux 图片上传
+    {
+      path: '/uploader',
+      name: 'Uploader',
+      component: Uploader
     },
     // 图片上传
     {
