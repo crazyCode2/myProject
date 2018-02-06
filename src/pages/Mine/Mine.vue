@@ -2,19 +2,22 @@
 <template>
   <div>
     <!-- 标题栏 -->
-     <x-header :left-options="{showBack: false}" title="计算时间差"></x-header>
-    <!-- 测试 -->
-    <group>
-      <x-input title="开始日期" placeholder="例如:20170101" v-model="startDate"></x-input>
-      <x-input title="结束日期" placeholder="例如:20180202" v-model="endDate"></x-input>
-    </group>
-    <div style="padding:15px;">
-      <x-button @click.native="monthDayDiff" type="primary">计算日期差</x-button>
+    <x-header :left-options="{showBack: false}" title="计算时间差"></x-header>
+    <!-- 内容部分 -->
+    <div class="content">
+      <!-- 测试 -->
+      <group>
+        <x-input title="开始日期" placeholder="例如:20170101" v-model="startDate"></x-input>
+        <x-input title="结束日期" placeholder="例如:20180202" v-model="endDate"></x-input>
+      </group>
+      <div style="padding:15px;">
+        <x-button @click.native="monthDayDiff" type="primary">计算日期差</x-button>
+      </div>
+      <!-- 结果 -->
+      <group>
+        <x-input title="结果" v-model="result"></x-input>
+      </group>
     </div>
-    <!-- 结果 -->
-    <group>
-      <x-input title="结果" v-model="result"></x-input>
-    </group>
   </div>
 </template>
 
@@ -81,5 +84,16 @@
 </script>
 
 <style lang="less" scoped>
-  //
+  .content{
+    position: absolute;
+    top: 46px;
+    left: 0px;
+    right: 0px;
+    bottom: 53px;
+    overflow: scroll;
+  }
+  /*隐藏 滚动条*/
+  ::-webkit-scrollbar{
+    display:none;
+  }
 </style>

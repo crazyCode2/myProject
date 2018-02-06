@@ -3,10 +3,13 @@
   <div>
     <!-- 标题栏 -->
     <mt-header title="书影音"></mt-header>
-    <!-- 轮播图 组件一 -->
-    <banner :listImg="bannerList"></banner>
-    <!-- 轮播图 组件二 -->
-   <!--  <swiper :swiper="bannerList"></swiper> -->
+    <!-- 内容部分 -->
+    <div class="content">
+      <!-- 轮播图 组件一 -->
+      <banner :listImg="bannerList"></banner>
+      <!-- 轮播图 组件二 -->
+      <!--  <swiper :swiper="bannerList"></swiper> -->
+    </div>
   </div>
 </template>
 
@@ -35,5 +38,16 @@
 </script>
 
 <style lang="less" scoped>
-  //
+  .content{
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    right: 0px;
+    bottom: 53px;
+    overflow: scroll;
+  }
+  /*隐藏 滚动条*/
+  ::-webkit-scrollbar{
+    display:none;
+  }
 </style>

@@ -38,7 +38,7 @@
     },
     data() {
       return {
-        select:"Home"
+
       }
     },
     // 计算属性
@@ -62,7 +62,7 @@
     },
     methods: {
       onIndexChange (newIndex, oldIndex) {
-        console.log(newIndex, oldIndex);
+        // console.log(newIndex, oldIndex);
       }
     }
   }
