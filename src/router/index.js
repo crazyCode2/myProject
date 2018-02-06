@@ -24,6 +24,7 @@ import VuxUI from '../pages/UI/VuxUI' // vux-ui webpack.base.conf.js
 import WeexUI from '../pages/UI/WeexUI' // weex-ui
 import AudioBook from '../pages/AudioBook/AudioBook' // 书影音
 import Mine from '../pages/Mine/Mine' // 我的
+import Iframe from '../pages/Webview/Iframe' // Iframe
 
 Vue.use(Router)
 
@@ -177,6 +178,12 @@ export default new Router({
       path: '/mine',
       name: 'Mine',
       component: Mine
+    },
+    // Iframe
+    {
+      path: '/iframe',
+      name: 'Iframe',
+      component: Iframe
     }
   ]
 })

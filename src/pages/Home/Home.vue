@@ -26,6 +26,7 @@
       <mt-cell title="扫描二维码 20171123" to="/scan" is-link></mt-cell>
       <mt-cell title="扫一扫 20171128" to="/scanner" is-link></mt-cell>
       <mt-cell title="二维码扫一扫 20180109" to="/qrScanner" is-link></mt-cell> -->
+      <mt-cell title="Iframe" to="/iframe" is-link></mt-cell>
     </div>
   </div>
 </template>
