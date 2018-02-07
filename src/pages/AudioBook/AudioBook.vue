@@ -9,6 +9,8 @@
       <banner :listImg="bannerList"></banner>
       <!-- 轮播图 组件二 -->
       <!--  <swiper :swiper="bannerList"></swiper> -->
+      <!-- 手风琴 -->
+      <squeeze-box :headerData="headerData"></squeeze-box>
     </div>
   </div>
 </template>
@@ -16,11 +18,13 @@
 <script>
   import Banner from '../../components/Banner.vue'
   // import Swiper from '../../components/Swiper.vue'
+  import SqueezeBox from '../../components/SqueezeBox.vue'
 
   export default {
     name: 'AudioBook',
     components: {
-      Banner
+      Banner,
+      SqueezeBox
     },
     data(){
       return {
@@ -31,7 +35,28 @@
           {"type":"1","img":"http://www.youdingsoft.com/fileUploadsmall/20180119172518390352.jpg;","url":""},
           {"type":"1","img":"http://www.youdingsoft.com/fileUploadsmall/20180119172540250495.jpg;","url":""},
           {"type":"1","img":"http://www.youdingsoft.com/fileUploadsmall/20180119172552359735.jpg;","url":""}
-        ]
+        ],
+        headerData: [{
+          name: '导航1',
+          list: [{name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}],
+          show: false
+        }, {
+          name: '导航2',
+          list: [{name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}],
+          show: false
+        }, {
+          name: '导航3',
+          list: [{name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}],
+          show: false
+        }, {
+          name: '导航4',
+          list: [{name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}],
+          show: false
+        }, {
+          name: '导航5',
+          list: [{name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}, {name: '子集',list: [{name:'张三',age:'20'}],showItem:false}],
+          show: false
+        }]
       }
     }
   }
