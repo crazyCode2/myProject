@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  // Accord 组件爱你
+  // Accord 组件(三级菜单)
   import Accord from '../../components/Accord'
 
   export default {
