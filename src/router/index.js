@@ -26,6 +26,8 @@ import AudioBook from '../pages/AudioBook/AudioBook' // 书影音
 import Mine from '../pages/Mine/Mine' // 我的
 import Iframe from '../pages/Webview/Iframe' // Iframe
 import Modules from '../pages/Modules/Modules' // 九宫格
+import Lottery from '../pages/Lottery/Lottery' // 抽奖活动
+import LotteryRecord from '../pages/Lottery/LotteryRecord' // 获奖记录
 
 Vue.use(Router)
 
@@ -191,6 +193,18 @@ export default new Router({
       path: '/modules',
       name: 'Modules',
       component: Modules
+    },
+    // 抽奖活动
+    {
+      path: '/lottery',
+      name: 'Lottery',
+      component: Lottery
+    },
+    // 抽奖活动
+    {
+      path: '/lotteryRecord',
+      name: 'LotteryRecord',
+      component: LotteryRecord
     }
   ]
 })

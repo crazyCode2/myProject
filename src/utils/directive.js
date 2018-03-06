@@ -69,3 +69,12 @@ Vue.directive('check', {
     }
   }
 })
+
+/**
+ * 自定义指令页面title实时更新
+ */
+Vue.directive('title', {
+  inserted: function (el, binding) {
+    document.title = binding.value
+  }
+});

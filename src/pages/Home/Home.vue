@@ -14,9 +14,9 @@
       <mt-cell title="图表" to="/diagram" is-link></mt-cell>
       <mt-cell title="弹窗" to="/messageBox" is-link></mt-cell>
       <mt-cell title="vux 图片上传" to="/uploader" is-link></mt-cell>
-      <mt-cell title="二级折叠列表" to="/fold" is-link></mt-cell> -->
+      <mt-cell title="二级折叠列表" to="/fold" is-link></mt-cell>
       <mt-cell title="三级折叠列表" to="/cuttle" is-link></mt-cell>
-      <!-- <mt-cell title="提示框" to="/toast" is-link></mt-cell>
+      <mt-cell title="提示框" to="/toast" is-link></mt-cell>
       <mt-cell title="自定义指令" to="/directive" is-link></mt-cell>
       <mt-cell title="自定义过滤器" to="/filter" is-link></mt-cell>
       <mt-cell title="mint-ui" to="/mint-ui" is-link></mt-cell>
@@ -26,8 +26,9 @@
       <mt-cell title="扫描二维码 20171123" to="/scan" is-link></mt-cell>
       <mt-cell title="扫一扫 20171128" to="/scanner" is-link></mt-cell>
       <mt-cell title="二维码扫一扫 20180109" to="/qrScanner" is-link></mt-cell>
-      <mt-cell title="Iframe" to="/iframe" is-link></mt-cell> -->
-      <mt-cell title="九宫格" to="/modules" is-link></mt-cell>
+      <mt-cell title="Iframe" to="/iframe" is-link></mt-cell>
+      <mt-cell title="九宫格" to="/modules" is-link></mt-cell> -->
+      <mt-cell title="抽奖活动" to="/lottery" is-link></mt-cell>
     </div>
   </div>
 </template>

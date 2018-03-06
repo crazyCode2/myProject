@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import * as filters from './utils/filters.js'
 // 引入 vuex入口文件
 import store from './store/index'
 
@@ -28,8 +29,13 @@ Vue.use(VueAxios, axios)
 
 // 全局引入 自定义指令
 import './utils/directive.js'
+
+// 过滤器
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
 // 全局引入 自定义过滤器
-import './utils/filters.js'
+// import './utils/filters.js'
 
 // 全局 注册scroller
 import VueScroller from 'vue-scroller'
