@@ -25,6 +25,7 @@ import WeexUI from '../pages/UI/WeexUI' // weex-ui
 import AudioBook from '../pages/AudioBook/AudioBook' // 书影音
 import Mine from '../pages/Mine/Mine' // 我的
 import Iframe from '../pages/Webview/Iframe' // Iframe
+import Modules from '../pages/Modules/Modules' // 九宫格
 
 Vue.use(Router)
 
@@ -184,6 +185,12 @@ export default new Router({
       path: '/iframe',
       name: 'Iframe',
       component: Iframe
+    },
+    // 九宫格
+    {
+      path: '/modules',
+      name: 'Modules',
+      component: Modules
     }
   ]
 })
