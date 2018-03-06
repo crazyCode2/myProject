@@ -5,7 +5,7 @@
     <mt-header title="首页"></mt-header>
     <!-- 内容部分 -->
     <div class="content">
-      <!-- <mt-cell title="复选框列表" to="/checkList" is-link></mt-cell>
+      <mt-cell title="复选框列表" to="/checkList" is-link></mt-cell>
       <mt-cell title="日期选择器" to="/dateTimePicker" is-link></mt-cell>
       <mt-cell title="图片上传" to="/uploadImg" is-link></mt-cell>
       <mt-cell title="生成二维码" to="/qr" is-link></mt-cell>
@@ -27,7 +27,7 @@
       <mt-cell title="扫一扫 20171128" to="/scanner" is-link></mt-cell>
       <mt-cell title="二维码扫一扫 20180109" to="/qrScanner" is-link></mt-cell>
       <mt-cell title="Iframe" to="/iframe" is-link></mt-cell>
-      <mt-cell title="九宫格" to="/modules" is-link></mt-cell> -->
+      <mt-cell title="九宫格" to="/modules" is-link></mt-cell>
       <mt-cell title="抽奖活动" to="/lottery" is-link></mt-cell>
     </div>
   </div>

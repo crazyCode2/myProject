@@ -7,7 +7,7 @@ import Vue from 'vue'
  * 制保留2位小数
  * 例如：2，会在2后面补上00.即2.00
  */
-Vue.filter('toDecimal2', x => {
+export function toDecimal2 (x) {
   var f = parseFloat(x);
   if (isNaN(f)) {
     return false;
@@ -23,14 +23,14 @@ Vue.filter('toDecimal2', x => {
     s += '0';
   }
   return s;
-});
+};
 
 /**
  * 获取两位小数部分
  * 例如：11.05，返回 '05'
  * 如果是整数，返回 '00'
  */
-Vue.filter('getDecimalPart', x => {
+export function getDecimalPart (x) {
   var f = parseFloat(x);
   if (isNaN(f)) {
     return false;
@@ -46,13 +46,13 @@ Vue.filter('getDecimalPart', x => {
     s += '0';
   }
   return s.split(".")[1];
-});
+};
 
 /**
  * 金额格式化
  * fmtMonty(2,'.', ',')后两个可省略
  */
-Vue.filter('fmtMoney', (number, decimals, dec_point, thousnds_stp) => {
+export function fmtMoney (number, decimals, dec_point, thousnds_stp) {
   /*
    * 参数说明：
    * number：要格式化的数字
@@ -82,25 +82,25 @@ Vue.filter('fmtMoney', (number, decimals, dec_point, thousnds_stp) => {
   }
   return s.join(dec);
 
-});
+};
 
 /**
  * 名字，身份证，银行卡，隐藏部分数字变‘*’号
  * plusXing(前面保留位数，后面保留位数）
  */
-Vue.filter('plusXing', (str, frontLen, endLen) => {
+export function plusXing (str, frontLen, endLen) {
   var len = str.length - frontLen - endLen;
   var xing = '';
   for (var i = 0; i < len; i++) {
     xing += '*';
   }
   return str.substring(0, frontLen) + xing + str.substring(str.length - endLen);
-});
+};
 
 /**
  * 银行卡号四个数字分割
  */
-Vue.filter('formartCode', n => {
+export function formartCode (n) {
   var b = parseInt(n).toString();
   var len = n.length;
   if (len <= 4) {
@@ -109,12 +109,12 @@ Vue.filter('formartCode', n => {
     var r = len % 4;
     return r > 0 ? b.slice(0, r) + "," + b.slice(r, len).match(/\d{4}/g).join(",") : b.slice(r, len).match(/\d{4}/g).join(" ");
   }
-});
+};
 
 /**
  * 借款、还款完成过滤
  */
-Vue.filter('complateState', n => {
+export function complateState (n) {
   switch (n) {
     case 0:
       return '借款';
@@ -123,12 +123,12 @@ Vue.filter('complateState', n => {
     case 2:
       return '逾期记录'
   }
-});
+};
 
 /**
  * 借款状态过滤器
  */
-Vue.filter('borrowStateFilter', function (data) {
+export function borrowStateFilter (data) {
   switch (data) {
     case 'SETTING':
       return "审核中";
@@ -147,12 +147,12 @@ Vue.filter('borrowStateFilter', function (data) {
     case 'SETL':
       return "已结清"
   }
-});
+};
 
 /**
  * 还款状态过滤器
  */
-Vue.filter('repaymentStateFilter', function (data) {
+export function repaymentStateFilter (data) {
   switch (data) {
     case '00':
       return "还款成功";
@@ -161,12 +161,12 @@ Vue.filter('repaymentStateFilter', function (data) {
     case '02':
       return "还款中";
   }
-});
+};
 
 /**
  * 银行小图标
  */
-Vue.filter('bankLogoUrl', function (data) {
+export function bankLogoUrl (data) {
   var imgUrl = "static/img/";
   switch (data) {
     case '上海银行':
@@ -206,12 +206,12 @@ Vue.filter('bankLogoUrl', function (data) {
     case '邮政储蓄':
       return imgUrl + 'ycbank.png';
   }
-});
+};
 
 /**
  * (利息等的)费率
  */
-Vue.filter('rate', function (data) {
+export function rate (data) {
   if (data) {
     data = data.toString();
     console.log(data);
@@ -223,72 +223,74 @@ Vue.filter('rate', function (data) {
     return parseInt(intS) + '.' + floatS + '%';
   }
   return '';
-});
+};
 
 /**
  * 时间过滤
  * fmtDate('yyyy,MM,dd')
  */
-Vue.filter('fmtDate', (date, fmt) => {
-    var o = {
-      'M+': date.getMonth() + 1, // 月份
-      'd+': date.getDate(), // 日
-      'h+': date.getHours(), // 小时
-      'm+': date.getMinutes(), // 分
-      's+': date.getSeconds(), // 秒
-      'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
-      'S': date.getMilliseconds() // 毫秒
-    };
-    if (/(y+)/.test(fmt)) {
-      fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
-    }
-    for (var k in o) {
-      if (new RegExp('(' + k + ')').test(fmt)) {
-        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
-      }
-    }
-    return fmt;
+export function fmtDate (date, fmt) {
+  var o = {
+    'M+': date.getMonth() + 1, // 月份
+    'd+': date.getDate(), // 日
+    'h+': date.getHours(), // 小时
+    'm+': date.getMinutes(), // 分
+    's+': date.getSeconds(), // 秒
+    'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
+    'S': date.getMilliseconds() // 毫秒
+  };
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
   }
-);
+  for (var k in o) {
+    if (new RegExp('(' + k + ')').test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+    }
+  }
+  return fmt;
+};
 
 /**
  * 时间过滤
  * date:'yyyy-MM-dd'
  */
-Vue.filter('fmtDateStr', (date) => {
+export function fmtDateStr (date) {
   if(!date) return '';
   var temp = date.split(" ")[0].split("-");
   return temp.join("/");
-});
-Vue.filter('fmtDateStr2', (date) => {
+};
+
+export function fmtDateStr2 (date) {
   if(!date) return '';
   var temp = date.split(" ")[0].split("-");
   return temp[0] + "年" + temp[1] + "月" + temp[2] + "日";
-});
-Vue.filter('fmtTimeStr', (date) => {
+};
+
+export function fmtTimeStr (date) {
   if(!date) return '';
   var temp = date.split(" ")[0].split("-");
   return temp.join("/") + " " + date.split(" ")[1];
-});
-Vue.filter('fmtTimeStr2', (date) => {
+};
+
+export function fmtTimeStr2 (date) {
   if(!date) return '';
   var temp = date.split(" ")[0].split("-");
   return temp[0] + "年" + temp[1] + "月" + temp[2] + "日" + " " + date.split(" ")[1];
-});
+};
 
 /**
  * 当前日期过滤器
  * new Date() --> ××年××月××日
  */
-Vue.filter('fmtCurrentDate', (date) => {
+export function fmtCurrentDate (date) {
   return date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日';
-});
+};
 
 /**
  * 当前时间过滤器
  * new Date() --> ××:××
  */
-Vue.filter('fmtCurrentTime', (date) => {
+export function fmtCurrentTime (date) {
   var minutes;
   if(date.getMinutes() < 10){
     minutes = '0' + date.getMinutes();
@@ -296,12 +298,12 @@ Vue.filter('fmtCurrentTime', (date) => {
     minutes = date.getMinutes();
   }
   return date.getHours() + ':' + minutes;
-});
+};
 
 /**
  * 格式化时间为年、月、日、小时、分钟、刚刚
  */
-Vue.filter('fmtDate2', (time) => {
+export function fmtDate2 (time) {
   let oldDate = new Date(time)
   let newDate = new Date()
   var dayNum = "";
@@ -343,7 +345,7 @@ Vue.filter('fmtDate2', (time) => {
   second = addZero(second);
 
   return dayNum+" "+year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
-});
+};
 
 /**
  *自定义过滤器日期格式化   4月15日
