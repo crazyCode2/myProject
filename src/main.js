@@ -18,6 +18,12 @@ Vue.use(MintUI)
 // import 'weex-ui/lib/style.css'
 // Vue.use(WeexUI)
 
+// 全局引入 loading/toast/alert
+import { LoadingPlugin, ToastPlugin, AlertPlugin } from 'vux'
+Vue.use(LoadingPlugin)
+Vue.use(ToastPlugin)
+Vue.use(AlertPlugin)
+
 // 引入 axios 数据请求方式
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -36,6 +42,11 @@ Object.keys(filters).forEach(key => {
 })
 // 全局引入 自定义过滤器
 // import './utils/filters.js'
+
+// 引用API文件
+import api from './api/index.js'
+// 将API方法绑定到全局
+Vue.prototype.$api = api
 
 // 全局 注册scroller
 import VueScroller from 'vue-scroller'
@@ -57,10 +68,12 @@ Vue.use(Toast);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+const vm = new Vue({
   el: '#app',
   router,
   store,
   template: '<App/>',
   components: { App }
 })
+
+export default vm;

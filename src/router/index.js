@@ -28,6 +28,7 @@ import Iframe from '../pages/Webview/Iframe' // Iframe
 import Modules from '../pages/Modules/Modules' // 九宫格
 import Lottery from '../pages/Lottery/Lottery' // 抽奖活动
 import LotteryRecord from '../pages/Lottery/LotteryRecord' // 获奖记录
+import Api from '../pages/Api/Api' // api请求测试
 
 Vue.use(Router)
 
@@ -205,6 +206,12 @@ export default new Router({
       path: '/lotteryRecord',
       name: 'LotteryRecord',
       component: LotteryRecord
+    },
+    // api请求测试
+    {
+      path: '/api',
+      name: 'Api',
+      component: Api
     }
   ]
 })

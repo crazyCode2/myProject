@@ -29,6 +29,7 @@
       <mt-cell title="Iframe" to="/iframe" is-link></mt-cell>
       <mt-cell title="九宫格" to="/modules" is-link></mt-cell>
       <mt-cell title="抽奖活动" to="/lottery" is-link></mt-cell>
+      <mt-cell title="api请求接口测试" to="/api" is-link></mt-cell>
     </div>
   </div>
 </template>
