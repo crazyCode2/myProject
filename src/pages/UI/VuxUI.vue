@@ -10,10 +10,10 @@
     </group>
     <!-- 两栏滚动 -->
     <divider>两栏滚动</divider>
-    <popup-picker :title="title2" :data="list2" :columns="2" v-model="value2" show-name></popup-picker>
+    <popup-picker :title="title2" :data="list2" :columns="2" v-model="value2" @on-change="onChangeValue2" show-name></popup-picker>
     <!-- 三栏滚动 -->
     <divider>三栏滚动</divider>
-    <popup-picker :title="title3" :data="list3" :columns="3" v-model="value3" show-name></popup-picker>
+    <popup-picker :title="title3" :data="list3" :columns="3" v-model="value3" @on-change="onChangeValue3" show-name></popup-picker>
   </div>
 </template>
 
@@ -121,6 +121,14 @@
           parent: 'usa002'
         }],
         value3: []
+      }
+    },
+    methods: {
+      onChangeValue2(val){
+        console.log(val);
+      },
+      onChangeValue3(val){
+        console.log(val);
       }
     }
   }
