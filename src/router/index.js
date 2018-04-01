@@ -21,14 +21,17 @@ import Directive from '../pages/Util/Directive' // 自定义指令
 import Filter from '../pages/Util/Filter' // 自定义过滤器
 import MintUI from '../pages/UI/MintUI' // mint-ui
 import VuxUI from '../pages/UI/VuxUI' // vux-ui webpack.base.conf.js
+import Picker from '../pages/UI/Picker' // Picker 调试
 import WeexUI from '../pages/UI/WeexUI' // weex-ui
 import AudioBook from '../pages/AudioBook/AudioBook' // 书影音
 import Mine from '../pages/Mine/Mine' // 我的
+import Setting from '../pages/Mine/Setting.vue' // 设置
 import Iframe from '../pages/Webview/Iframe' // Iframe
 import Modules from '../pages/Modules/Modules' // 九宫格
 import Lottery from '../pages/Lottery/Lottery' // 抽奖活动
 import LotteryRecord from '../pages/Lottery/LotteryRecord' // 获奖记录
 import Api from '../pages/Api/Api' // api请求测试
+import Mp3 from '../pages/Mp3/Mp3' // mp3调试
 
 Vue.use(Router)
 
@@ -165,6 +168,12 @@ export default new Router({
       name: 'VuxUI',
       component: VuxUI
     },
+    // Picker 调试
+    {
+      path: '/picker',
+      name: 'Picker',
+      component: Picker
+    },
     // weex-ui
     {
       path: '/weex-ui',
@@ -182,6 +191,12 @@ export default new Router({
       path: '/mine',
       name: 'Mine',
       component: Mine
+    },
+    // 设置
+    {
+      path: '/setting',
+      name: 'Setting',
+      component: Setting
     },
     // Iframe
     {
@@ -212,6 +227,12 @@ export default new Router({
       path: '/api',
       name: 'Api',
       component: Api
+    },
+    // mp3 调试
+    {
+      path: '/mp3',
+      name: 'Mp3',
+      component: Mp3
     }
   ]
 })

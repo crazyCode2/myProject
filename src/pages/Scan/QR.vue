@@ -35,6 +35,14 @@
         MessageBox.prompt('请输入新的url').then(({ value, action }) => {
           this.val = value;
         });
+      },
+      // 金蝶
+      scan(){
+        // 调用扫一扫功能
+        XuntongJSBridge.call("scanQRCode", {"needResult":1}, function(result) {
+          // 接收result
+
+        });
       }
     }
   }

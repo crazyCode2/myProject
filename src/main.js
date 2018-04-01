@@ -24,6 +24,11 @@ Vue.use(LoadingPlugin)
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
 
+import { WechatPlugin } from 'vux'
+Vue.use(WechatPlugin)
+Vue.prototype.$wechat = Vue.wechat
+// console.log(Vue.wechat) // 可以直接访问 wx 对象。
+
 // 引入 axios 数据请求方式
 import axios from 'axios'
 import VueAxios from 'vue-axios'

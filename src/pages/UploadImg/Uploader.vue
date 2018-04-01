@@ -1,45 +1,62 @@
-<!-- vux 图片上传 -->
+<!-- vux-uploader 图片上传组件 -->
 <template>
   <div>
     <!-- 标题栏 -->
-    <mt-header title="上传图片">
+    <mt-header title="vux-uploader图片上传组件">
       <router-link to="/" slot="left">
         <mt-button icon="back">返回</mt-button>
       </router-link>
     </mt-header>
-    <divider>没有封装组件，引入样式使用</divider>
-    <div class="weui-uploader" style="padding:15px;">
-      <div class="weui-uploader__hd">
-        <p class="weui-uploader__title">图片上传</p>
-        <div class="weui-uploader__info">0/2</div>
-      </div>
-      <div class="weui-uploader__bd">
-        <ul class="weui-uploader__files" id="uploaderFiles">
-          <li class="weui-uploader__file" style="background-image:url(https://static.vux.li/uploader_bg.png)"></li>
-          <li class="weui-uploader__file" style="background-image:url(https://static.vux.li/uploader_bg.png)"></li>
-          <li class="weui-uploader__file" style="background-image:url(https://static.vux.li/uploader_bg.png)"></li>
-          <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(https://static.vux.li/uploader_bg.png)">
-            <div class="weui-uploader__file-content">
-              <i class="weui-icon-warn"></i>
-            </div>
-          </li>
-          <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(https://static.vux.li/uploader_bg.png)">
-            <div class="weui-uploader__file-content">50%</div>
-          </li>
-        </ul>
-        <div class="weui-uploader__input-box">
-          <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple />
-        </div>
-      </div>
-    </div>
+    <!-- 内容部分 -->
+    <!-- <uploader
+      :max="varmax"
+      :images="images"
+      :handle-click="true"
+      :show-header="false"
+      :readonly="true"
+      :upload-url="uploadUrl"
+      name="img"
+      :params="params"
+      size="small"
+      @preview="previewMethod"
+      @add-image="addImageMethod"
+      @remove-image="removeImageMethod"
+    ></uploader> -->
+
+    <uploader
+      :autoUpload="false"></uploader>
   </div>
 </template>
 
 <script>
-  import { Divider } from 'vux'
+  // 引入组件
+  import Uploader from '../../components/Uploader/uploader.vue'
+
   export default {
     components: {
-      Divider
+      Uploader,
+    },
+    data(){
+      return {
+        varmax: 5, // 图片最大张数
+        images: [], // 图片数组
+        uploadUrl: '', // 接收上传图片的url
+        params: {} // 上传文件时携带参数
+      }
+    },
+    mounted () {
+      //
+    },
+    methods: {
+      previewMethod(){
+        //
+      },
+      addImageMethod(){
+        //
+      },
+      removeImageMethod(){
+        //
+      }
     }
   }
 </script>

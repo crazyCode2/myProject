@@ -7,13 +7,13 @@
     <div class="content">
       <mt-cell title="复选框列表" to="/checkList" is-link></mt-cell>
       <mt-cell title="日期选择器" to="/dateTimePicker" is-link></mt-cell>
-      <mt-cell title="图片上传" to="/uploadImg" is-link></mt-cell>
+      <mt-cell title="自定义 图片上传" to="/uploadImg" is-link></mt-cell>
       <mt-cell title="生成二维码" to="/qr" is-link></mt-cell>
       <mt-cell title="下拉刷新/上拉加载更多" to="/loadMore" is-link></mt-cell>
       <mt-cell title="加载更多" to="/getMore" is-link></mt-cell>
       <mt-cell title="图表" to="/diagram" is-link></mt-cell>
       <mt-cell title="弹窗" to="/messageBox" is-link></mt-cell>
-      <mt-cell title="vux 图片上传" to="/uploader" is-link></mt-cell>
+      <mt-cell title="vux-uploader 图片上传" to="/uploader" is-link></mt-cell>
       <mt-cell title="二级折叠列表" to="/fold" is-link></mt-cell>
       <mt-cell title="三级折叠列表" to="/cuttle" is-link></mt-cell>
       <mt-cell title="提示框" to="/toast" is-link></mt-cell>
@@ -21,6 +21,7 @@
       <mt-cell title="自定义过滤器" to="/filter" is-link></mt-cell>
       <mt-cell title="mint-ui" to="/mint-ui" is-link></mt-cell>
       <mt-cell title="vux-ui" to="/vux-ui" is-link></mt-cell>
+      <mt-cell title="Picker调试" to="picker" is-link></mt-cell>
       <mt-cell title="weex-ui" to="/weex-ui" is-link></mt-cell>
       <mt-cell title="跳转登录页" to="/login" is-link></mt-cell>
       <mt-cell title="扫描二维码 20171123" to="/scan" is-link></mt-cell>
@@ -30,6 +31,7 @@
       <mt-cell title="九宫格" to="/modules" is-link></mt-cell>
       <mt-cell title="抽奖活动" to="/lottery" is-link></mt-cell>
       <mt-cell title="api请求接口测试" to="/api" is-link></mt-cell>
+      <mt-cell title="Mp3调试" to="/mp3" is-link></mt-cell>
     </div>
   </div>
 </template>

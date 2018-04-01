@@ -2,7 +2,12 @@
 <template>
   <div>
     <!-- 标题栏 -->
-    <x-header :left-options="{showBack: false}" title="计算时间差"></x-header>
+    <x-header
+      :left-options="{showBack: false}"
+      title="计算时间差"
+    >
+      <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;" @click.native="goSetting"></x-icon>
+    </x-header>
     <!-- 内容部分 -->
     <div class="content">
       <!-- 测试 -->
@@ -105,6 +110,10 @@
          * 同为平年或同为闰年没有影响
          */
         return (0 == year%4 && (year%100 !=0 || year%400 == 0));
+      },
+      // 跳转设置页
+      goSetting(){
+        this.$router.push({name: 'Setting'});
       }
     }
   }
