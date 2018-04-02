@@ -119,29 +119,32 @@
         }
         let formData = new window.FormData()
         formData.append(this.name, this.$refs.input.files[0])
+
+        console.log(this.params);
         if (this.params) {
           for( let key in this.params) {
             formData.append(key, this.params[key])
           }
         }
-        if (this.autoUpload) {
-          if (!this.uploadUrl) {
-            console.error('uploadUrl不应为空')
-          }
-          if (this.$vux && this.$vux.loading) {
-            this.$vux.loading.show('正在上传')
-          }
-          axios.post(this.uploadUrl, formData)
-          .then((response) => {
-            if (this.$vux && this.$vux.loading) {
-              this.$vux.loading.hide()
-            }
-            this.$refs.input.value = ''
-            this.images.push(response.data.data)
-          })
-        } else {
-          this.$emit('upload-image', formData)
-        }
+
+        // if (this.autoUpload) {
+        //   if (!this.uploadUrl) {
+        //     console.error('uploadUrl不应为空')
+        //   }
+        //   if (this.$vux && this.$vux.loading) {
+        //     this.$vux.loading.show('正在上传')
+        //   }
+        //   axios.post(this.uploadUrl, formData)
+        //   .then((response) => {
+        //     if (this.$vux && this.$vux.loading) {
+        //       this.$vux.loading.hide()
+        //     }
+        //     this.$refs.input.value = ''
+        //     this.images.push(response.data.data)
+        //   })
+        // } else {
+        //   this.$emit('upload-image', formData)
+        // }
       }
     },
     computed: {

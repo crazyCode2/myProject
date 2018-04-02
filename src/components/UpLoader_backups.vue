@@ -1,4 +1,4 @@
-<!-- 上传图片 组件 -->
+<!-- 上传图片 组件(备份) -->
 <template>
   <div class="vue-uploader">
     <!-- 添加图片 及 显示效果 -->
@@ -17,7 +17,7 @@
       </section>
     </div>
     <!-- 上传图片操作 及 显示进程 -->
-    <section v-if="files.length != 0 && showState" class="upload-func">
+    <section v-if="files.length != 0" class="upload-func">
       <!-- 上传进度 -->
       <div class="progress-bar">
         <section v-if="uploading" :width="(percent * 100) + '%'">{{(percent * 100) + '%'}}</section>
@@ -40,14 +40,6 @@
       src: { // 后台接受图片的http地址
         type: String,
         required: true
-      },
-      onOff: { // 上传开关
-        type: Object,
-        default(){
-          return {
-            value: false
-          }
-        }
       }
     },
     data() {
@@ -56,19 +48,6 @@
         files: [], // 图片数组
         uploading: false, // 进度条
         percent: 0, // 上传进度
-        showState: false // 显示或隐藏状态按钮
-      }
-    },
-    watch:{
-      onOff: {
-        handler: function (val, oldVal) {
-          console.log(val);
-          if(val){
-            // 执行上传图片的操作
-            this.submit();
-          }
-        },
-        deep: true
       }
     },
     methods: {
@@ -80,7 +59,6 @@
       submit() {
         if (this.files.length === 0) {
           console.warn('no file!');
-          this.onOff.value = false;
           return
         }
         // 创建formData对象
@@ -110,7 +88,6 @@
       },
       // 上传图片列表中的某个图片
       remove(index) {
-        this.onOff.value = false;
         this.files.splice(index, 1)
       },
       // 唤醒相机/图库
