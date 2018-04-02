@@ -6,7 +6,7 @@
     </video> -->
 
     <audio id="myAudio" loop>
-      <source src="../assets/mp3/4031.mp3" type="audio/mpeg">
+      <source :src="url" type="audio/mpeg">
     </audio>
 
     <!-- <audio id="myAudio" loop>
@@ -38,7 +38,7 @@
     },
     data() {
       return {
-        // url: '../assets/mp3/6705.mp3'
+        url: require('../assets/mp3/6705.mp3')
       }
     },
     watch:{
