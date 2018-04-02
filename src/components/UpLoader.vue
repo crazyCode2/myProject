@@ -62,8 +62,7 @@
     watch:{
       onOff: {
         handler: function (val, oldVal) {
-          console.log(val);
-          if(val){
+          if(val.value){
             // 执行上传图片的操作
             this.submit();
           }
