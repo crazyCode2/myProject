@@ -4,9 +4,17 @@
     <!-- 标题栏 -->
     <x-header
       :left-options="{showBack: false}"
+      :right-options="{showMore: true}"
       title="计算时间差"
     >
       <x-icon slot="overwrite-left" type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;" @click.native="goSetting"></x-icon>
+
+      <!--四个门面页 “微信” “通讯录” “发现” “我”-->
+      <section class="app-content">
+        <keep-alive>
+          <router-view name="default" ></router-view>
+        </keep-alive>
+      </section>
     </x-header>
     <!-- 内容部分 -->
     <div class="content">
@@ -22,6 +30,13 @@
       <group>
         <x-input title="结果:" v-model="result"></x-input>
       </group>
+      <!-- 测试 -->
+      <div style="padding:15px;">
+        <x-button @click.native="test" type="primary">未使用节流函数</x-button>
+      </div>
+      <div style="padding:15px;">
+        <x-button @click.native="choke" type="primary">已使用节流函数</x-button>
+      </div>
     </div>
   </div>
 </template>
@@ -41,8 +56,14 @@
       return {
         startDate: '20000229',
         endDate: '20180228',
-        result: ''
+        result: '',
+        data: {
+          "qrcode_str": "{\"keyPart\":{\"bh\":\"A-1001\",\"gdlx\":\"A类\",\"id\":\"445\",\"jqName\":\"一监一分\",\"mc\":\"测试测试\",\"ssqy\":\"1\",\"ssqyName\":\"监区\",\"szjq\":\"11\"}}"
+        }
       }
+    },
+    mounted(){
+      this.toJsonObject(this.data.qrcode_str);
     },
     methods: {
       computedDayDiff(){
@@ -114,6 +135,21 @@
       // 跳转设置页
       goSetting(){
         this.$router.push({name: 'Setting'});
+      },
+      // 优化
+      choke(){
+        // 调用 全局函数--节流函数
+        // this.throttle(() => {
+        //     console.log(1);
+        // },250);
+
+        let a = this.throttle(this.test,1000);
+
+        a();
+      },
+      // 测试函数
+      test(){
+        console.log(1);
       }
     }
   }
@@ -131,5 +167,8 @@
   /*隐藏 滚动条*/
   ::-webkit-scrollbar{
     display:none;
+  }
+  .vux-header-left{
+    right: 10px;
   }
 </style>

@@ -34,10 +34,12 @@
   import axios from 'axios'
   export default {
     props: {
+      // 图片数组
       images: {
         type: Array,
         default: () => []
       },
+      // 图片最大张数
       max: {
         type: Number,
         default: 1
@@ -52,10 +54,12 @@
         type: Boolean,
         default: true
       },
+      // 是否只读
       readonly: {
         type: Boolean,
         default: false
       },
+      // 头部的标题
       title: {
         type: String,
         default: '图片上传'
@@ -70,22 +74,27 @@
         type: Boolean,
         default: true
       },
+      // 接收上传图片的url
       uploadUrl: {
         type: String,
         default: ''
       },
+      // 尺寸类型
       size: {
         type: String,
         default: 'normal'
       },
+      // input 的capture属性
       capture: {
         type: String,
         default: ''
       },
+      // 默认上传的时候，图片使用的表单name
       name: {
         type: String,
         default: 'img'
       },
+      // 上传文件时携带参数
       params: {
         type: Object,
         default: null
@@ -95,6 +104,7 @@
       UploaderItem
     },
     methods: {
+      // 添加图片
       add () {
         if (this.handleClick) {
           this.$emit('add-image')
@@ -108,6 +118,7 @@
           this.images.shift()
         }
       },
+      // 预览
       preview (image) {
         // 暂未实现，可以捕捉preview事件自己实现
         this.$emit('preview', image)
@@ -160,6 +171,9 @@
   .remove:before {
     width: 0;
     height: 0;
+  }
+  .weui-uploader{
+    overflow: hidden;
   }
   .weui-uploader__bd.small {
     .weui-uploader__input-box {

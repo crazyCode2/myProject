@@ -32,6 +32,7 @@ import Lottery from '../pages/Lottery/Lottery' // 抽奖活动
 import LotteryRecord from '../pages/Lottery/LotteryRecord' // 获奖记录
 import Api from '../pages/Api/Api' // api请求测试
 import Mp3 from '../pages/Mp3/Mp3' // mp3调试
+import FilterBarTest from '../pages/FilterBarTest/FilterBarTest' // 移动端筛选条组件
 
 Vue.use(Router)
 
@@ -233,6 +234,12 @@ export default new Router({
       path: '/mp3',
       name: 'Mp3',
       component: Mp3
+    },
+    // 移动端删选条件
+    {
+      path: '/filterBarTest',
+      name: 'FilterBarTest',
+      component: FilterBarTest
     }
   ]
 })

@@ -33,6 +33,18 @@
         onOff: false
       }
     },
+    mounted(){
+      // console.log(this.$route.path);
+      // console.log(this.$route);
+      // console.log(this.$router.options.routes);
+    },
+    beforeRouteEnter (to, from, next) {
+      // 在导航完成前获取数据
+      console.log(to.path); // 当前路由
+      console.log(from.path); // 上一页路由
+      // 执行下一步操作
+      next();
+    },
     methods: {
       startAlarm(){
         console.log('开启');

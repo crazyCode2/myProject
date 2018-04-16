@@ -70,6 +70,10 @@ import './components/Toast/toast.css';
 import Toast from './components/Toast/index';
 Vue.use(Toast);
 
+// 引入全局函数
+import base from './base'
+Vue.use(base);
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

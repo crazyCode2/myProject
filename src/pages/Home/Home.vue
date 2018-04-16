@@ -32,6 +32,7 @@
       <mt-cell title="抽奖活动" to="/lottery" is-link></mt-cell>
       <mt-cell title="api请求接口测试" to="/api" is-link></mt-cell>
       <mt-cell title="Mp3调试" to="/mp3" is-link></mt-cell>
+      <mt-cell title="移动端筛选条件" to="/filterBarTest" is-link></mt-cell>
     </div>
   </div>
 </template>

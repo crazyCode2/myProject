@@ -20,6 +20,7 @@
     ></uploader> -->
 
     <uploader
+      :max="varmax"
       :autoUpload="autoUpload"
       :uploadUrl="uploadUrl"
     ></uploader>
