@@ -28,7 +28,7 @@
       <mt-cell title="扫一扫 20171128" to="/scanner" is-link></mt-cell>
       <mt-cell title="二维码扫一扫 20180109" to="/qrScanner" is-link></mt-cell>
       <mt-cell title="Iframe" to="/iframe" is-link></mt-cell>
-      <mt-cell title="九宫格" to="/modules" is-link></mt-cell>
+      <mt-cell title="九宫格 及 终止函数测试" to="/modules" is-link></mt-cell>
       <mt-cell title="抽奖活动" to="/lottery" is-link></mt-cell>
       <mt-cell title="api请求接口测试" to="/api" is-link></mt-cell>
       <mt-cell title="Mp3调试" to="/mp3" is-link></mt-cell>

@@ -70,4 +70,22 @@ exports.install = function (Vue, options) {
   Vue.prototype.toJsonObject = function (str) {
     console.log(JSON.parse(str));
   }
+
+  /**
+   * 请求参数验证
+   * params 的所有属性值都不能为空
+   */
+  Vue.prototype.paramsValidate = function (params) {
+    let flag = true;
+
+    for(var key in params){
+      if(!params[key]){
+        this.$vux.toast.text('请完善数据!', 'middle');
+        return false; // 终止程序
+      }
+    }
+
+    return flag;
+  }
+
 };
