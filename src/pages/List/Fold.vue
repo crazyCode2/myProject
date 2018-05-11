@@ -11,6 +11,7 @@
     <accordion
       v-for="(item,index) in dataList"
       :key="item.id"
+      :currentNum="item.id"
       :title="item"
       :list="item.child">
     </accordion>
@@ -19,7 +20,7 @@
 
 <script>
   // Accordion 组件
-  import Accordion from '../../components/Accordion'
+  import Accordion from '../../components/Accordion.vue';
 
   export default {
     name: 'Fold',
@@ -29,12 +30,17 @@
     data(){
       return {
         dataList:[
-          {"area":"深圳","num":"10","sum":"30","child":[
+          {"id":"123","area":"深圳","num":"10","sum":"30","child":[
             {"area":"罗湖","num":"20","sum":"20"},
             {"area":"福田","num":"20","sum":"20"},
             {"area":"南山","num":"20","sum":"20"}
           ]},
-          {"area":"广州","num":"10","sum":"30","child":[
+          {"id":"456","area":"广州","num":"10","sum":"30","child":[
+            {"area":"白云","num":"20","sum":"20"},
+            {"area":"福田","num":"20","sum":"20"},
+            {"area":"南山","num":"20","sum":"20"}
+          ]},
+          {"id":"789","area":"广州","num":"10","sum":"30","child":[
             {"area":"白云","num":"20","sum":"20"},
             {"area":"福田","num":"20","sum":"20"},
             {"area":"南山","num":"20","sum":"20"}

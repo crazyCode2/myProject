@@ -22,13 +22,14 @@
 </template>
 
 <script>
+  // 引入 vuex 的两个方法
+  import {mapGetters, mapActions} from 'vuex'
+
   export default {
-    data () {
-      return {
-        isDisplay: false
-      }
-    },
     props: {
+      currentNum: {
+        default: ''
+      },
       title: {
         type: Object,
         default(){
@@ -40,9 +41,35 @@
         required: true
       }
     },
+    // 计算属性
+    computed:mapGetters([
+      // 从 getters 中获取值
+      'currentIndex'
+    ]),
+    data () {
+      return {
+        isDisplay: false
+      }
+    },
+    watch:{
+      currentIndex: {
+        handler: function (val, oldVal) {
+          // 判断 折叠item 缩放
+          if(this.currentNum == val){
+            this.isDisplay = true;
+          }else{
+            this.isDisplay = false;
+          }
+        },
+        deep: true
+      }
+    },
     methods: {
       toggleList () {
-        this.isDisplay = !this.isDisplay
+        // 切换
+        this.isDisplay = !this.isDisplay;
+        // 将 currentIndex 保存到 vuex
+        this.$store.dispatch('currentIndex',this.currentNum);
       }
     }
   }

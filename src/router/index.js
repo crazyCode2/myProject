@@ -33,6 +33,8 @@ import LotteryRecord from '../pages/Lottery/LotteryRecord' // 获奖记录
 import Api from '../pages/Api/Api' // api请求测试
 import Mp3 from '../pages/Mp3/Mp3' // mp3调试
 import FilterBarTest from '../pages/FilterBarTest/FilterBarTest' // 移动端筛选条组件
+import Preparation from '../pages/FilterBarTest/Preparation' // 筛选 css3
+import PersonalInformation from '../pages/PersonalInformation/PersonalInformation' // 个人信息 table
 
 Vue.use(Router)
 
@@ -240,6 +242,18 @@ export default new Router({
       path: '/filterBarTest',
       name: 'FilterBarTest',
       component: FilterBarTest
+    },
+    // 筛选 css3
+    {
+      path: '/preparation',
+      name: 'Preparation',
+      component: Preparation
+    },
+    // 个人信息 table
+    {
+      path: '/personalInformation',
+      name: 'PersonalInformation',
+      component: PersonalInformation
     }
   ]
 })

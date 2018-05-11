@@ -2,25 +2,20 @@
  * 步骤一
  * vuex 入口文件
  */
+// 引入 vue
 import Vue from 'vue'
+// 引入 vuex
 import Vuex from 'vuex'
-Vue.use(Vuex)
-import * as actions from './actions'
-import * as mutations from './mutations'
 
-const store = new Vuex.Store({
-  actions,
-  mutations,
+import actions from './actions'
+import mutations from './mutations'
 
-  state: {
-    tabbar:true // 底部tab栏
+Vue.use(Vuex);
+
+// 导出
+export default new Vuex.Store({
+  modules:{
+    mutations
   },
-
-  getters: {
-    tabbarShow (state) {
-      return state.tabbar;
-    }
-  }
-})
-
-export default store;
+  actions
+});
