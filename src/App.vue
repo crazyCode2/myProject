@@ -68,6 +68,9 @@
   }
 </script>
 
-<style lang="less" scoped>
-
+<style lang="scss">
+  // 防止布局错乱
+  table{
+    table-layout:fixed;
+  }
 </style>

@@ -19,6 +19,11 @@
       :placeholder="'请输入姓名'"
       :show="showSearchBtn"
     />
+    <!-- 下拉框 组件 -->
+    <BuildingTabsSelect
+      :tabs="tabs"
+      @tabsData="getTabsData"
+    />
   </div>
 </template>
 
@@ -28,6 +33,8 @@
   import Search from '../../components/Search'
   // 搜索框 组件二
   import SearchBackups from '../../components/SearchBackups'
+  // 条件选择框 组件
+  import BuildingTabsSelect from '../../components/BuildingTabsSelect'
 
   export default {
     name: 'Select',
@@ -36,10 +43,13 @@
       Icon,
       Search,
       SearchBackups,
+      BuildingTabsSelect,
     },
     data(){
       return {
-        showSearchBtn: false
+        showSearchBtn: false, // 显示或隐藏搜索框
+        tabs: ['区域','监区','类别','状态']
+        // tabs: ['区域','监区','状态','全部类型']
       }
     },
     methods: {
@@ -50,6 +60,10 @@
       // 显示或隐藏搜索框
       showSearch(){
         this.showSearchBtn = !this.showSearchBtn;
+      },
+      // 获取条件选择组件参数
+      getTabsData(data){
+        console.log(data);
       }
     }
   }
