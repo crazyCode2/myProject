@@ -1,0 +1,21 @@
+$defaultColor:#eee;
+$textColor:#666;
+$titleColor:#9d9d9d;
+$cell:#333;
+$tabbarActiveColor:#0069ac;
+$gap:5px;
+.mt5 {
+  margin-top: $gap;
+}
+
+.mt10 {
+  margin-top: $gap*2;
+}
+.ellipsis{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+// 为了方便依赖所有的公共样式，创建一个 app.scss
+@import "./functions";
+@import "./mixins";

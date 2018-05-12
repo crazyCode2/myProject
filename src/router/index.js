@@ -36,6 +36,7 @@ import FilterBarTest from '../pages/FilterBarTest/FilterBarTest' // 移动端筛
 import Preparation from '../pages/FilterBarTest/Preparation' // 筛选 css3
 import PersonalInformation from '../pages/PersonalInformation/PersonalInformation' // 个人信息 table
 // import SvgMap from '../pages/SvgMap/SvgMap' // svg 地图
+import Select from '../pages/Select/Select' // 下拉框 测试页
 
 Vue.use(Router)
 
@@ -271,5 +272,11 @@ export default new Router({
     //   name: 'SvgMap',
     //   component: SvgMap
     // },
+    // 下拉框 测试页
+    {
+      path: '/select',
+      name: 'Select',
+      component: Select
+    },
   ]
 })

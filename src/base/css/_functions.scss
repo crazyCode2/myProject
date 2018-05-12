@@ -1,0 +1,5 @@
+//将px转换成rem
+$defaut-font-size: 64px; // 设计图为 640
+@function px2rem($px) {
+  @return $px/$defaut-font-size * 1rem;
+}
