@@ -35,6 +35,7 @@
       <mt-cell title="移动端筛选条件" to="/filterBarTest" is-link></mt-cell>
       <mt-cell title="筛选 css3" to="/preparation" is-link></mt-cell>
       <mt-cell title="个人信息 table" to="/personalInformation" is-link></mt-cell>
+      <!-- <mt-cell title="svg 地图" to="/svgMap" is-link></mt-cell> -->
     </div>
   </div>
 </template>

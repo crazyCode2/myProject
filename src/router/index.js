@@ -35,6 +35,7 @@ import Mp3 from '../pages/Mp3/Mp3' // mp3调试
 import FilterBarTest from '../pages/FilterBarTest/FilterBarTest' // 移动端筛选条组件
 import Preparation from '../pages/FilterBarTest/Preparation' // 筛选 css3
 import PersonalInformation from '../pages/PersonalInformation/PersonalInformation' // 个人信息 table
+// import SvgMap from '../pages/SvgMap/SvgMap' // svg 地图
 
 Vue.use(Router)
 
@@ -44,6 +45,15 @@ export default new Router({
     {
       path: '/',
       component: Home
+    },
+    // 路由不存在重定向
+    {
+      path: '/home',
+      redirect: '/'
+    },
+    {
+      path: '*',
+      redirect: '/'
     },
     // 首页
     {
@@ -254,6 +264,12 @@ export default new Router({
       path: '/personalInformation',
       name: 'PersonalInformation',
       component: PersonalInformation
-    }
+    },
+    // // svg 地图
+    // {
+    //   path: '/svgMap',
+    //   name: 'SvgMap',
+    //   component: SvgMap
+    // },
   ]
 })
