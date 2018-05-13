@@ -71,6 +71,9 @@
 </template>
 
 <script>
+  // 引入vuex
+  import {mapGetters, mapActions} from 'vuex'
+  // 引入vux
   import { Tab, TabItem } from 'vux'
 
   export default {
@@ -85,6 +88,11 @@
           return ['区域','监区','类别','状态']
         }
       }
+    },
+    computed: {
+      ...mapGetters([//...函数名 使用对象展开运算符将此对象混入到外部对象中
+        'originSzjqListData'
+      ])
     },
     data() {
       return {
@@ -115,6 +123,14 @@
       }
     },
     mounted(){
+      // // 性能优化
+      // // vuex 监区列表数据
+      // if(this.originSzjqListData.length > 0){
+      //   this.szjqList = this.originSzjqListData;
+      // }else{
+      //   this.fetchAareList();
+      // }
+      // 设置ul宽度
       this.currentStyle.width = this.getViewportSize().width / 4 + 'px';
       // 判断
       if(this.tabs[2] == '状态'){ // 巡查统计模块
@@ -135,25 +151,27 @@
           res.prisonList.push({childList:[{jq:"",jqName:"全部监区"}],jq:"all_prison",jqName:"监狱"});
           // 过滤数据
           this.szjqList = res.prisonList;
-          // 将监区列表 保存至 vuex
+          // 将原始监区列表 保存至 vuex
+          this.$store.dispatch('originSzjqListData', this.szjqList); // 异步
+          // 将过滤后的监区列表 保存至 vuex
           this.$store.dispatch('szjqListData', this.filterData(res.prisonList)); // 异步
         })
       },
-      // 获取巡查类型数据
-      fetchTypeList(){
-        // 模拟数据
-        this.$api.post('appKeyPartCheckManage_selectXclx.action', {}, res => {
-          // 重置
-          this.typeList = [];
-          let currentArr = ['全部类型'];
-          res.typeList.forEach(function(item,index,arr){
-            currentArr.push(item.xclxName);
-          })
-          this.typeList.push(currentArr);
-          // 将状态列表 保存至 vuex
-          this.$store.dispatch('typeListData', this.typeList); // 异步
-        });
-      },
+      // // 获取巡查类型数据
+      // fetchTypeList(){
+      //   // 模拟数据
+      //   this.$api.post('appKeyPartCheckManage_selectXclx.action', {}, res => {
+      //     // 重置
+      //     this.typeList = [];
+      //     let currentArr = ['全部类型'];
+      //     res.typeList.forEach(function(item,index,arr){
+      //       currentArr.push(item.xclxName);
+      //     })
+      //     this.typeList.push(currentArr);
+      //     // 将状态列表 保存至 vuex
+      //     this.$store.dispatch('typeListData', this.typeList); // 异步
+      //   });
+      // },
       // tab栏 点击事件
       onItemClick (index,type) {
         if(this.currentSelect == type){

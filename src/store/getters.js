@@ -11,5 +11,9 @@ export default {
   // 获取 当前序号
   currentIndex: (state) => {
     return state.currentIndex;
+  },
+  // 获取 原始监区列表数据
+  originSzjqListData: (state) => {
+    return state.originSzjqListData;
   }
 }

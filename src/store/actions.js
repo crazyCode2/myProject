@@ -20,5 +20,9 @@ export default {
   // 保存 当前序号 currentIndex
   currentIndex: ({commit}, res) => {
     commit(types.CURRENT_INDEX, res);
+  },
+  // 保存 原始监区列表数据 originSzjqListData
+  originSzjqListData: ({commit}, res) => {
+    commit(types.ORIGIN_SZJQ_LIST_DATA, res);
   }
 }

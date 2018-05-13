@@ -6,6 +6,7 @@ import {
   SHOW_TABBAR, // 显示 tabbar
   HIDE_TABBAR, // 隐藏 tabbar
   CURRENT_INDEX, // 当前序号 currentIndex
+  ORIGIN_SZJQ_LIST_DATA, // 原始监区列表数据 originSzjqListData
 } from './types'
 
 // 引入 getters
@@ -14,7 +15,8 @@ import getters from './getters'
 // 定义、初始化数据
 const state = {
   tabbar:true,
-  currentIndex:''
+  currentIndex:'',
+  originSzjqListData:[]
 }
 
 // 定义 mutations
@@ -29,6 +31,10 @@ const mutations = {
   // 当前序号 currentIndex
   [CURRENT_INDEX](state, res){
     state.currentIndex = res;   //state.数据名 = data
+  },
+  // 原始监区列表数据 originSzjqListData
+  [ORIGIN_SZJQ_LIST_DATA](state, res){
+    state.originSzjqListData = res;   //state.数据名 = data
   }
 }
 
