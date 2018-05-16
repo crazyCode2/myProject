@@ -12,6 +12,18 @@
     <m-alarm
       :onOff="onOff"
     ></m-alarm>
+
+    <div class="main_content key_parts">
+      <p class="masked">测试一测试一测试一</p>
+      <p class="masked">测试二测试二测试二</p>
+      <p class="masked">测试三测试三测试三</p>
+    </div>
+
+    <div class="main_content key_person">
+      <p class="masked">测试一测试一测试一</p>
+      <p class="masked">测试二测试二测试二</p>
+      <p class="masked">测试三测试三测试三</p>
+    </div>
   </div>
 </template>
 
@@ -58,14 +70,24 @@
   }
 </script>
 
-<style lang="less" scoped>
-  .content{
-    position: absolute;
-    top: 46px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    overflow: scroll;
+<style lang="scss" scoped>
+  .main_content{
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+    &.key_parts{
+      background-image: url('../../assets/img/key_parts.png');
+      background-size: cover;
+    }
+    &.key_person{
+      background-image: url('../../assets/img/key_person.png');
+      background-size: cover;
+    }
+    p{
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+    }
   }
   /*隐藏 滚动条*/
   ::-webkit-scrollbar{

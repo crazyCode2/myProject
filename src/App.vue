@@ -73,4 +73,18 @@
   table{
     table-layout:fixed;
   }
+  // css3实现文字扫光渐变动画效果
+  .masked{
+    text-align: center;
+    background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+    // background-image: -webkit-linear-gradient(left, #f0fff0, #bbffbb 25%, #93ff93 50%, #53ff53 75%, #00ec00);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation: masked-animation 4s infinite linear;
+  }
+  @-webkit-keyframes masked-animation {
+    0%{ background-position: 0 0;}
+    100% { background-position: -100% 0;}
+  }
 </style>
