@@ -37,6 +37,7 @@ import Preparation from '../pages/FilterBarTest/Preparation' // 筛选 css3
 import PersonalInformation from '../pages/PersonalInformation/PersonalInformation' // 个人信息 table
 // import SvgMap from '../pages/SvgMap/SvgMap' // svg 地图
 import Select from '../pages/Select/Select' // 下拉框 测试页
+import ThumbnailPage from '../pages/ThumbnailPage/ThumbnailPage' // 缩略图
 
 Vue.use(Router)
 
@@ -277,6 +278,12 @@ export default new Router({
       path: '/select',
       name: 'Select',
       component: Select
+    },
+    // 缩略图
+    {
+      path: '/thumbnailPage',
+      name: 'ThumbnailPage',
+      component: ThumbnailPage
     },
   ]
 })

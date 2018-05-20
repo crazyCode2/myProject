@@ -37,6 +37,7 @@
       <mt-cell title="个人信息 table" to="/personalInformation" is-link></mt-cell>
       <!-- <mt-cell title="svg 地图" to="/svgMap" is-link></mt-cell> -->
       <mt-cell title="下拉框 测试页" to="/select" is-link></mt-cell>
+      <mt-cell title="缩略图" to="/thumbnailPage" is-link></mt-cell>
     </div>
   </div>
 </template>

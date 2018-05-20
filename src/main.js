@@ -38,6 +38,29 @@ Vue.use(VueAxios, axios)
 // import VueQrcodeReader from 'vue-qrcode-reader'
 // Vue.use(VueQrcodeReader)
 
+/***图片模板等懒加载 start ***/
+import VueLazyload from 'vue-lazyload'
+// 404图片
+import errImg from './assets/img/error_img.png'
+// loading图片
+import loadingImg from './assets/img/loading.gif'
+
+// 图片懒加载配置
+Vue.use(VueLazyload, {
+  preLoad: 1.3, // 预加载高度比例
+  error: errImg, // 图片路径错误时加载图片
+  loading: loadingImg, // 预加载图片
+  attempt: 1, // 尝试加载图片数量
+  // set observer to true
+  observer: true,
+  // optional
+  observerOptions: {
+    rootMargin: '0px',
+    threshold: 0.1
+  }
+})
+/***图片模板等懒加载 end ***/
+
 // 全局引入 自定义指令
 import './utils/directive.js'
 

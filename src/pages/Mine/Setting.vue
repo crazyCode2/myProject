@@ -24,11 +24,22 @@
       <p class="masked">测试二测试二测试二</p>
       <p class="masked">测试三测试三测试三</p>
     </div>
+
+    <group>
+      <x-textarea
+        :title="'防范措施'"
+        :placeholder="'请输入防范措施'"
+        :show-counter="false"
+        v-model="currentValue"
+        readonly
+        autosize
+      ></x-textarea>
+    </group>
   </div>
 </template>
 
 <script>
-  import { XHeader, Box, XButton } from 'vux'
+  import { XHeader, Box, XButton, Group, XTextarea } from 'vux'
   // 引入报警组件
   import mAlarm from '../../components/Alarm.vue'
 
@@ -39,16 +50,22 @@
       Box,
       XButton,
       mAlarm,
+      Group,
+      XTextarea,
     },
     data(){
       return {
-        onOff: false
+        onOff: false,
+        currentValue: ''
       }
     },
     mounted(){
       // console.log(this.$route.path);
       // console.log(this.$route);
       // console.log(this.$router.options.routes);
+
+      // 请求数据
+      this.fetchData();
     },
     beforeRouteEnter (to, from, next) {
       // 在导航完成前获取数据
@@ -65,6 +82,13 @@
       stopAlarm(){
         console.log('关闭');
         this.onOff = false;
+      },
+      // 请求数据
+      fetchData(){
+        this.currentValue = '1、测试测试测试测试。2、测试测试测试测试测试;3、测试测试测试测试；4、测试测试测试测试。5、测试测试测试测试;';
+
+        // 自动换行
+        this.currentValue = this.autoLinefeed(this.currentValue);
       }
     }
   }

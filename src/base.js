@@ -88,4 +88,43 @@ exports.install = function (Vue, options) {
     return flag;
   }
 
+  /**
+   * 自动换行
+   * 过滤 ; 。；
+   */
+  Vue.prototype.autoLinefeed = function (str) {
+    /**
+     * split()
+     * 使用一个指定的分隔符把一个字符串分割存储到数组
+     */
+    // let arr = str.split(/[;。；]/);
+
+    var str = "how,are.you"; // 原字符串
+    var reg = /\.|\,/g; // 正则表达式
+    //记录每个标志位的字符到底是什么
+    var strFlag= [];
+    for(var i=0;i<str.match(reg).length;i++){
+      strFlag[i] = str.match(reg)[i];
+    }
+
+    //开始切割
+    var strArray = str.split(reg);
+    for(var i=0;i<strArray.length;i++){
+      strArray[i] += "<br />";
+    }
+    //将数组还原
+    var strNew = "";
+    for(var i=0;i<strArray.length;i++){
+      if(strFlag[i]!=null){
+        strNew += strArray[i] + strFlag[i];
+      }else{
+        strNew += strArray[i];
+      }
+    }
+
+    console.log(strNew);
+
+    return strNew;
+  }
+
 };
