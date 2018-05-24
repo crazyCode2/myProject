@@ -18,7 +18,6 @@
   import { XHeader, Box, XButton } from 'vux'
   // 引入 缩略图 组件
   import Thumbnail from '../../components/ThumbnailBackups.vue'
-
   export default {
     name: 'ThumbnailPage',
     components: {
