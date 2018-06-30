@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
-    "better-scroll": "^1.8.0",
+    "better-scroll": "^1.12.4",
     "echarts": "^3.8.5",
     "jsqr": "^0.2.2",
     "less": "^2.7.3",

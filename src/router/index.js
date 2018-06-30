@@ -10,8 +10,9 @@ import QR from '../pages/Scan/QR' // 生成二维码
 import Scan from '../pages/Scan/Scan' // 扫描二维码
 import Scanner from '../pages/Scan/Scanner' // 扫一扫
 import QrScanner from '../pages/Scan/QrScanner' // 扫一扫 20180109
-import LoadMore from '../pages/More/LoadMore' // 下拉刷新/上拉加载更多
-import GetMore from '../pages/More/GetMore' // 加载更多
+import LoadMore from '../pages/More/LoadMore' // 下拉刷新/上拉加载更多(引入VueScroller)
+import GetMore from '../pages/More/GetMore' // 下拉刷新/上拉加载更多(自定义Scroller)
+import BetterScroll from '../pages/More/BetterScroll' // 下拉刷新/上拉加载更多(vue+better-scroll)
 import Diagram from '../pages/Echarts/Diagram' // 图表
 import MessageBox from '../pages/Toast/MessageBox' // 弹窗
 import Fold from '../pages/List/Fold' // 二级折叠列表
@@ -117,17 +118,23 @@ export default new Router({
       name: 'QrScanner',
       component: QrScanner
     },
-    // 下拉刷新/上拉加载更多
+    // 下拉刷新/上拉加载更多(引入VueScroller)
     {
       path: '/loadMore',
       name: 'LoadMore',
       component: LoadMore
     },
-    // 加载更多
+    // 下拉刷新/上拉加载更多(自定义Scroller)
     {
       path: '/getMore',
       name: 'GetMore',
       component: GetMore
+    },
+    // 下拉刷新/上拉加载更多(vue+better-scroll)
+    {
+      path: '/betterScroll',
+      name: 'BetterScroll',
+      component: BetterScroll
     },
     // 图表
     {
