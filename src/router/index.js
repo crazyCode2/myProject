@@ -11,6 +11,7 @@ import Scan from '../pages/Scan/Scan' // 扫描二维码
 import Scanner from '../pages/Scan/Scanner' // 扫一扫
 import QrScanner from '../pages/Scan/QrScanner' // 扫一扫 20180109
 import LoadMore from '../pages/More/LoadMore' // 下拉刷新/上拉加载更多(引入VueScroller)
+import VueScroller from '../pages/More/VueScroller' // 下拉刷新/上拉加载更多(自定义VueScroller)
 import GetMore from '../pages/More/GetMore' // 下拉刷新/上拉加载更多(自定义Scroller)
 import BetterScroll from '../pages/More/BetterScroll' // 下拉刷新/上拉加载更多(vue+better-scroll)
 import Diagram from '../pages/Echarts/Diagram' // 图表
@@ -123,6 +124,12 @@ export default new Router({
       path: '/loadMore',
       name: 'LoadMore',
       component: LoadMore
+    },
+    // 下拉刷新/上拉加载更多(自定义VueScroller)
+    {
+      path: '/vueScroller',
+      name: 'VueScroller',
+      component: VueScroller
     },
     // 下拉刷新/上拉加载更多(自定义Scroller)
     {
