@@ -22,10 +22,13 @@
 
 <script>
   import { XHeader } from 'vux'
+  // 引入 Scroller 组件
+  import Scroller from '../../components/VueScroller/Scroller'
 
   export default {
     components: {
       XHeader,
+      Scroller
     },
     data () {
       return {
