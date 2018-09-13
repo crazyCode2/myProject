@@ -40,7 +40,7 @@
         this.deleteSlider = "transform:translateX(0px)";
       },
       touchStart(ev){
-        console.log(ev)
+        // console.log(ev)
         ev= ev || event;
         //tounches类数组，等于1时表示此时有只有一只手指在触摸屏幕
         if(ev.touches.length == 1){
@@ -73,7 +73,7 @@
       },
       touchEnd(ev){
         ev = ev || event;
-        console.log(ev)
+        // console.log(ev)
         let wd=this.$refs.remove.offsetWidth;
         if (ev.changedTouches.length == 1) {
           let endX = ev.changedTouches[0].clientX;
@@ -94,7 +94,7 @@
 <style lang="less" scoped>
   .slider{
     width: 100%;
-    height:100px;
+    height:50px;
     position: relative;
     user-select: none;
     .content{
@@ -111,14 +111,14 @@
     .remove{
       position: absolute;
       width:100px;
-      height:100px;
+      height:50px;
       background:red;
       right: 0;
       top: 0;
       color:#fff;
       text-align: center;
-      font-size: 32px;
-      line-height: 100px;
+      font-size: 16px;
+      line-height: 50px;
     }
   }
 </style>

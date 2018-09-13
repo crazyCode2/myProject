@@ -1,12 +1,8 @@
 /**
  * 配置API接口地址
- * 测试：http://10.40.207.81:8080/Wifi/interface/
- * 测试接口：
- * http://api.ycapp.yiche.com/appnews/GetStructNews?newsId=65523&ts=20161215074823&plat=2&theme=0&version=7.6
- * http://www.youdingsoft.com/
+ * 测试接口：https://h5.manhua.163.com/category/1004.json?page=1
  */
-// const root = 'http://api.ycapp.yiche.com/appnews/' // 测试
-// const root = 'http://www.youdingsoft.com/' // 测试
+// const root = 'https://h5.manhua.163.com/' // 测试
 const root = 'api/' // 测试
 
 // 引用axios
@@ -16,7 +12,7 @@ import axios from 'axios'
 axios.defaults.baseURL = root;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'; // post 内容类型
 axios.defaults.headers.get['Content-Type'] = 'application/json;charset=utf-8'; // get 内容类型
-axios.defaults.timeout = 10000; // 超时设置,超时进入错误回调，进行相关操作
+axios.defaults.timeout = 30000; // 超时设置,超时进入错误回调，进行相关操作
 axios.defaults.withCredentials = true; // 是否支持跨域cookie
 
 // 引入 vm 实例
@@ -48,10 +44,12 @@ function filterNull (o) {
  * 接口处理函数
  */
 function apiAxios (method, url, params, success, failure) {
-  // 显示等待框
-  vm.$vux.loading.show({
-    text: '加载中...'
-  });
+  if(vm){
+    // 显示等待框
+    vm.$vux.loading.show({
+      text: '加载中...'
+    });
+  }
 
   if (params) {
     params = filterNull(params)

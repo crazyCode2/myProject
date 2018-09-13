@@ -29,7 +29,10 @@ Vue.use(WechatPlugin)
 Vue.prototype.$wechat = Vue.wechat
 // console.log(Vue.wechat) // 可以直接访问 wx 对象。
 
-// 引入 axios 数据请求方式
+/**
+ * 引入 axios 数据请求方式
+ * axios 和 VueAxios 必须同时注入
+ */
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)

@@ -11,10 +11,10 @@
     <div class="cont">
       <m-scroller :on-refresh="onRefresh" :on-infinite="onInfinite" :dataList="scrollData" :marginTop="marginTop">
         <ul>
-          <li v-for="(item,index) in listdata">
+          <li v-for="(item,index) in listData">
             <!-- 左滑删除 -->
             <m-left-slider @msg-from-child="getMsgFromChild(item)">
-              {{item.name}}
+              {{item.title}}
             </m-left-slider>
           </li>
         </ul>
@@ -35,11 +35,10 @@
     data() {
       return {
         marginTop:'margin-top:40px;',
-        pageStart: 0, // 开始页数
-        pageEnd: 0, // 结束页数
-        listdata: [], // 数据列表
+        listPage: 1, // 页码
+        listData: [], // 数据列表
         scrollData:{
-          noFlag: false //暂无更多数据显示
+          noFlag: true //暂无更多数据显示
         }
       }
     },
@@ -49,16 +48,11 @@
     },
     methods: {
       fetchData() {
-        this.axios.get('/api/testData').then((response) => {
-          this.listdata = response.data.data.list;
-          // 获取总页数
-          this.pageEnd = response.data.data.totalPage;
-          // 还原
-          this.pageStart = 0;
+        this.listPage = 1;
+        // 请求数据
+        this.$api.get('category/1004.json',{page: 1},res => {
+          this.listData = res.data.books;
         })
-      },
-      getMsgFromChild (v) {
-        this.listdata.splice(v,1)
       },
       // 下拉刷新
       onRefresh(done) {
@@ -67,24 +61,38 @@
       },
       // 上拉加载更多
       onInfinite(done) {
-        this.pageStart++;
+        this.listPage++;
         // 加载条
         let more = this.$el.querySelector('.load-more');
         // 判断是否显示加载条
-        if(this.pageStart > this.pageEnd){
-          //走完数据调用方法
-          this.scrollData.noFlag = true;
-        }else{
-          let _this = this;
-          this.axios.get('/api/testData').then((response) => {
-            _this.listdata = _this.listdata.concat(response.data.data.list);
-            // 获取总页数
-            _this.pageEnd = response.data.data.totalPage;
+        console.log(this.scrollData.noFlag);
+        if(!this.scrollData.noFlag){
+          this.axios.get('category/1004.json',{
+            params:{
+              page: this.listPage
+            }
+          }).then((response) => {
+            this.listData = this.listData.concat(response.data.data.books);
+            // 判断是否有下一页
+            if(!response.data.next || this.listPage >= 3){
+              console.log(this.listPage,111);
+              console.log(this.scrollData.noFlag);
+              // 没有更多数据
+              this.scrollData.noFlag = true;
+
+              console.log(this.scrollData.noFlag);
+            }
+          }).catch((err) => {
+            //
           })
         }
         // 隐藏加载条
         more.style.display = 'none';
         done();
+      },
+      // 左滑删除
+      getMsgFromChild (v) {
+        this.listData.splice(v,1)
       }
     }
   }
