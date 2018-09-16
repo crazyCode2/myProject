@@ -30,8 +30,6 @@
   // 引入 VueBetterScroll 组件
   import VueBetterScroll from '../../components/VueBetterScroll'
 
-  let count = 1
-
   export default {
     components: {
       XHeader,
