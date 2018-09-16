@@ -15,7 +15,7 @@
         @pullingDown="onPullingDown"
         @pullingUp="onPullingUp">
         <ul ref="list" class="list-content" style="min-height: 95vh">
-          <li class="list-item" v-for="item in items">{{item}}</li>
+          <li class="list-item" v-for="item in listData" :key="item.id">{{item.title}}</li>
         </ul>
 
       </vue-better-scroll>
@@ -60,7 +60,9 @@
         scrollToX: 0,
         scrollToY: 0,
         scrollToTime: 700,
-        items: []
+        listPage: 1, // 当前页码
+        listData: [], // 后端数据
+        canLoadMore: true
       }
     },
     mounted() {
@@ -74,32 +76,31 @@
       // 模拟数据请求
       getData () {
         return new Promise(resolve => {
-          setTimeout(() => {
-            const arr = []
-            for (let i = 0; i < 20; i++) {
-              arr.push(count++)
-            }
-            resolve(arr)
-          }, 1000)
+          this.$api.get('category/1004.json',{page: this.listPage},res => {
+            this.canLoadMore = res.next ? res.next : false;
+            resolve(res.data.books);
+          });
         })
       },
       onPullingDown () {
+        this.listPage = 1;
         // 模拟下拉刷新
-        console.log('下拉刷新')
-        count = 0
+        console.log('下拉刷新');
         this.getData().then(res => {
-          this.items = res
+          this.listData = res;
           this.$refs.scroll.forceUpdate(true)
         })
       },
       onPullingUp () {
+        this.listPage++;
         // 模拟上拉 加载更多数据
         console.log('上拉加载')
         this.getData().then(res => {
-          this.items = this.items.concat(res)
-          if(count<50){
+          this.listData = this.listData.concat(res)
+          if(this.canLoadMore){
             this.$refs.scroll.forceUpdate(true)
           }else{
+            // 没有更多数据了
             this.$refs.scroll.forceUpdate(false)
           }
         })
