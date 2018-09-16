@@ -14,6 +14,7 @@ import LoadMore from '../pages/More/LoadMore' // 下拉刷新/上拉加载更多
 import VueScroller from '../pages/More/VueScroller' // 下拉刷新/上拉加载更多(自定义VueScroller)
 import GetMore from '../pages/More/GetMore' // 下拉刷新/上拉加载更多(自定义Scroller)
 import BetterScroll from '../pages/More/BetterScroll' // 下拉刷新/上拉加载更多(vue+better-scroll)
+import Dropload from '../pages/More/Dropload' // 下拉刷新/上拉加载更多(Dropload)
 import Diagram from '../pages/Echarts/Diagram' // 图表
 import MessageBox from '../pages/Toast/MessageBox' // 弹窗
 import Fold from '../pages/List/Fold' // 二级折叠列表
@@ -142,6 +143,12 @@ export default new Router({
       path: '/betterScroll',
       name: 'BetterScroll',
       component: BetterScroll
+    },
+    // 下拉刷新/上拉加载更多(Dropload)
+    {
+      path: '/dropload',
+      name: 'Dropload',
+      component: Dropload
     },
     // 图表
     {
