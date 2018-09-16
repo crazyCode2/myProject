@@ -34,23 +34,12 @@
       },
       // GET 方法请求
       getData(){
-        // let params = {
-        //   newsId: 65523,
-        //   ts: 20161215074823,
-        //   plat: 2,
-        //   theme: 0,
-        //   version: 7.6
-        // };
-        // // 发起请求
-        // this.$api.get('GetStructNews', params, res => {
-        //   console.log(res);
-        // })
-
+        // 参数
         let params = {
-          act: 'index'
+          page: 2
         };
         // 发起请求
-        this.$api.get('/siteH5/index.json', params, res => {
+        this.$api.get('category/1004.json', params, res => {
           if(res.data){
             Toast({
               message: res.data,
@@ -62,23 +51,12 @@
       },
       // POST 方法请求
       postData(){
-        // let params = {
-        //   newsId: 65523,
-        //   ts: 20161215074823,
-        //   plat: 2,
-        //   theme: 0,
-        //   version: 7.6
-        // };
-        // // 发起请求
-        // this.$api.post('GetStructNews', params, res => {
-        //   console.log(res);
-        // })
-
+        // 参数
         let params = {
-          act: 'index'
+          page: 2
         };
         // 发起请求
-        this.$api.post('/siteH5/index.json', params, res => {
+        this.$api.post('category/1004.json', params, res => {
           if(res.data){
             Toast({
               message: res.data,

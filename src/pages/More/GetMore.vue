@@ -13,9 +13,10 @@
         <ul>
           <li v-for="(item,index) in listData">
             <!-- 左滑删除 -->
-            <m-left-slider @msg-from-child="getMsgFromChild(item)">
+            <!-- <m-left-slider @msg-from-child="getMsgFromChild(item)">
               {{item.title}}
-            </m-left-slider>
+            </m-left-slider> -->
+            {{item.title}}
           </li>
         </ul>
       </m-scroller>
@@ -38,8 +39,9 @@
         listPage: 1, // 页码
         listData: [], // 数据列表
         scrollData:{
-          noFlag: true //暂无更多数据显示
-        }
+          noFlag: false // 是否显示'暂无数据' false:不显示 true:显示
+        },
+        canLoadMore: false
       }
     },
     mounted: function() {
@@ -65,8 +67,7 @@
         // 加载条
         let more = this.$el.querySelector('.load-more');
         // 判断是否显示加载条
-        console.log(this.scrollData.noFlag);
-        if(!this.scrollData.noFlag){
+        if(!this.canLoadMore){
           this.axios.get('category/1004.json',{
             params:{
               page: this.listPage
@@ -74,18 +75,31 @@
           }).then((response) => {
             this.listData = this.listData.concat(response.data.data.books);
             // 判断是否有下一页
-            if(!response.data.next || this.listPage >= 3){
-              console.log(this.listPage,111);
-              console.log(this.scrollData.noFlag);
+            if(this.listPage >= 3){
               // 没有更多数据
               this.scrollData.noFlag = true;
-
-              console.log(this.scrollData.noFlag);
+              this.canLoadMore = true;
             }
           }).catch((err) => {
             //
           })
         }
+
+        // 注: this.scrollData.noFlag 在子组件运行结束后会改为 false
+        // if(this.listPage >= 3){ // 判断标准 例如: this.pageStart > this.pageEnd
+        //   this.scrollData.noFlag = true;
+        // }else{
+        //   this.axios.get('category/1004.json',{
+        //     params:{
+        //       page: this.listPage
+        //     }
+        //   }).then((response) => {
+        //     this.listData = this.listData.concat(response.data.data.books);
+        //   }).catch((err) => {
+        //     //
+        //   })
+        // }
+
         // 隐藏加载条
         more.style.display = 'none';
         done();
